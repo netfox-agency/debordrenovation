@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#251f19"/>
+  <!-- Toit à deux pans + cheminée : le geste du métier, raccord avec le logo -->
+  <path d="M10 40 L32 18 L54 40" fill="none" stroke="#e59a6b" stroke-width="5.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 25 V15 h6 v16" fill="none" stroke="#f6f2ec" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
