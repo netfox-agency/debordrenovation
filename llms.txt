@@ -26,6 +26,7 @@ Aides : accompagnement MaPrimeRénov’, éco-PTZ, TVA à 10 %, aides locales.
 - Des combles non isolés représentent jusqu’à 30 % des pertes de chaleur d’un logement.
 - Un faîtage fissuré ou décollé est la cause principale des infiltrations en toiture.
 - Climat ardéchois : contrôle de toiture recommandé tous les 3 à 5 ans.
+- Le sarking isole la toiture par l’extérieur, en continu au-dessus de la charpente : volume habitable intact, ponts thermiques supprimés, charpentes apparentes préservées. Il se réalise lors d’une réfection de couverture.
 
 ## Pages
 - [Accueil](https://renovation-ardeche.fr/) : présentation, chantiers réels, zones d’intervention, questions fréquentes, contact.
