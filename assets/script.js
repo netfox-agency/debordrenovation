@@ -195,10 +195,13 @@
         return;
       }
 
+      // FormData (pas JSON) : envoi "simple", sans preflight CORS. Web3Forms
+      // refuse le preflight d'un fetch JSON ; le multipart passe toujours.
+      // On ne fixe PAS Content-Type : le navigateur pose le bon boundary.
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
       })
         .then(function (r) { return r.json(); })
         .then(function (data) {

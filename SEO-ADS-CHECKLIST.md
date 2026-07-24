@@ -24,7 +24,7 @@ Site en ligne sur `https://renovation-ardeche.fr` (Cloudflare + dépôt
 
 ## À FAIRE — par ordre d'impact
 
-### 1. Formulaire = destinataire (BLOQUANT pour les ads)
+### 1. Formulaire = destinataire — FAIT (clé Web3Forms câblée le 24/07)
 Sans ça, chaque clic d'annonce qui remplit le formulaire tombe sur le repli
 « appelez-nous » : lead à moitié perdu, budget ads gaspillé.
 
