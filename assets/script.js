@@ -2,6 +2,32 @@
 (function () {
   'use strict';
 
+  /* ============================================================
+     SUIVI DES CONVERSIONS (Google Ads / GA4 / Meta via GTM)
+     Les deux conversions d'un couvreur : le devis (formulaire) et
+     l'appel (clic sur un numéro). On les pousse dans dataLayer, que
+     GTM lit. dataLayer est un simple tableau : inoffensif sans GTM.
+
+     >>> POUR ACTIVER : remplacer GTM-XXXXXXX par le vrai ID de conteneur
+         Google Tag Manager. Tant que le placeholder est là, GTM ne se
+         charge pas (aucune requête inutile), mais les événements sont
+         quand même collectés dans dataLayer.
+     ============================================================ */
+  window.dataLayer = window.dataLayer || [];
+  var GTM_ID = 'GTM-XXXXXXX';
+  if (GTM_ID.indexOf('XXXX') === -1) {
+    window.dataLayer.push({ 'gtm.start': +new Date(), event: 'gtm.js' });
+    var g = document.createElement('script');
+    g.async = true;
+    g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(g);
+  }
+  // Conversion « appel » : tout clic sur un lien tel:
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) window.dataLayer.push({ event: 'phone_call', source: a.className || 'lien' });
+  }, true);
+
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Vidéo de la carte « Rénovation de toiture » ----------
@@ -177,7 +203,11 @@
         .then(function (r) { return r.json(); })
         .then(function (data) {
           form.style.display = 'none';
-          if (data.success) { ok.classList.add('show'); } else { ko.classList.add('show'); }
+          if (data.success) {
+            ok.classList.add('show');
+            // Conversion « devis » pour Google Ads / GA4 (via dataLayer).
+            window.dataLayer.push({ event: 'generate_lead', form: 'devis', prestation: (form.querySelector('[name="prestation"]') || {}).value || '' });
+          } else { ko.classList.add('show'); }
         })
         .catch(function () {
           // Réseau coupé, API HS : le numéro reste la porte de sortie.
