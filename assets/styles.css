@@ -730,3 +730,28 @@ h2, h3 { text-wrap: balance; }
   .faq-list details { break-inside: avoid; }
   .faq-list .answer { display: block !important; }
 }
+
+
+/* ============================================================
+   RÉALISATIONS (galerie de chantiers réels)
+   ============================================================ */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+.rea { position: relative; margin: 0; border-radius: var(--r-md); overflow: hidden; box-shadow: var(--sh-sm); }
+.rea img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; transition: transform .6s var(--ease); }
+.rea:hover img { transform: scale(1.05); }
+.rea::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(37,31,25,.72) 0%, rgba(37,31,25,.1) 42%, transparent 70%); }
+.rea figcaption { position: absolute; left: 12px; right: 12px; bottom: 11px; z-index: 1; color: #fff; font-size: 13px; font-weight: 600; letter-spacing: -.01em; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.rea.tall { grid-row: span 2; }
+.rea.tall img { aspect-ratio: 4 / 5; height: 100%; }
+.gallery-foot { margin-top: 26px; }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } .rea.tall { grid-row: span 1; } .rea.tall img { aspect-ratio: 4 / 3; } }
+@media (max-width: 520px) { .gallery { grid-template-columns: 1fr 1fr; gap: 10px; } }
+
+/* Page réalisations : galerie pleine largeur, tuiles régulières */
+.rea-page { padding-block: clamp(120px, 14vw, 150px) clamp(64px, 8vw, 112px); }
+.rea-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
+.rea-grid .rea img { aspect-ratio: 4 / 3; }
+.rea-cat { grid-column: 1 / -1; margin-top: 22px; }
+.rea-cat:first-of-type { margin-top: 0; }
+@media (max-width: 860px) { .rea-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .rea-grid { grid-template-columns: 1fr; } }
