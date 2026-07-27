@@ -243,9 +243,10 @@ h2, h3 { text-wrap: balance; }
 }
 .hero-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-1); }
 .hero-media video, .hero-media img {
-  /* Sujet (couvreur + mains) dans la moitié droite de la photo : le cadrage
-     le garde entier, le texte occupe la gauche assombrie par le voile. */
-  width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+  /* Toiture en contre-plongée : ce cadrage garde le ciel, le clocher et la
+     ligne de faîte visibles en haut ; le texte occupe le bas-gauche assombri
+     par le voile, sur les tuiles de premier plan. */
+  width: 100%; height: 100%; object-fit: cover; object-position: center 42%;
 }
 /* Trois dégradés, aucun voile global — la droite de l'image reste nette :
    1. vers le haut  : assied le texte du hero
@@ -684,9 +685,9 @@ h2, h3 { text-wrap: balance; }
 @media (max-width: 640px) {
   /* svh, pas vh : la barre d'URL mobile mange le vh */
   .hero { min-height: 88svh; padding-top: 92px; }
-  /* En portrait, seul X compte (la photo 3/2 déborde en largeur) : 75%
-     cadre le couvreur et ses mains, qui sont dans la moitié droite. */
-  .hero-media video, .hero-media img { object-position: 75% center; }
+  /* En portrait, seul X compte (la photo 4/3 déborde en largeur) : ~38 %
+     garde le clocher et la ligne du village dans le cadre, à gauche. */
+  .hero-media video, .hero-media img { object-position: 38% center; }
   /* En portrait, le titre occupe le milieu du cadre — pile là où la photo est
      la plus lumineuse (ciel). Le dégradé desktop y est trop faible : le texte
      blanc s'y noyait. On remonte le voile sans jamais l'appliquer partout. */
