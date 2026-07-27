@@ -1,0 +1,9 @@
+.git
+.wrangler
+.gitignore
+.assetsignore
+wrangler.jsonc
+*.py
+PLAN.md
+README.md
+SEO-ADS-CHECKLIST.md
