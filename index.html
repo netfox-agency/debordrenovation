@@ -28,8 +28,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Le hero est l’élément LCP : préchargé pour qu’il parte avec le HTML. -->
-<link rel="preload" as="image" href="assets/img/hero-toiture.jpg" media="(min-width: 641px)">
-<link rel="preload" as="image" href="assets/img/hero-toiture-mob.jpg" media="(max-width: 640px)">
+<link rel="preload" as="image" href="assets/img/hero-toiture.jpg?v=2" media="(min-width: 641px)">
+<link rel="preload" as="image" href="assets/img/hero-toiture-mob.jpg?v=2" media="(max-width: 640px)">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css?v=13">
 </head>
@@ -40,7 +40,7 @@
 <!-- ============ NAV ============ -->
 <nav class="site-nav" id="nav" aria-label="Navigation principale">
   <div class="nav-inner">
-    <a href="#" class="brand" aria-label="Debord Rénovation, accueil">
+    <a href="/" class="brand" aria-label="Debord Rénovation, accueil">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 15 12 6l9 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 8.5V5h2.5v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
@@ -75,14 +75,14 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero">
-  <!-- Hero : chantier réel de l’entreprise — toiture en tuile canal
-       fraîchement rénovée dans un village d’Ardèche, clocher et monts en
-       arrière-plan. Le texte occupe la gauche assombrie par le voile. -->
+  <!-- Hero : le geste du métier en lumière dorée — couvreur posant des tuiles
+       neuves, sujet à droite, le texte occupe la gauche. Image d’illustration
+       (pas un chantier du client — ne jamais le prétendre dans l’alt). -->
   <div class="hero-media">
     <picture>
-      <source srcset="assets/img/hero-toiture-mob.jpg" media="(max-width: 640px)">
-      <img src="assets/img/hero-toiture.jpg" width="1800" height="1350" fetchpriority="high"
-           alt="Toiture en tuile canal rénovée par Debord Rénovation dans un village d’Ardèche, le clocher et les monts en arrière-plan.">
+      <source srcset="assets/img/hero-toiture-mob.jpg?v=2" media="(max-width: 640px)">
+      <img src="assets/img/hero-toiture.jpg?v=2" width="1800" height="1200" fetchpriority="high"
+           alt="Couvreur posant des tuiles neuves en terre cuite sur une toiture, dans la lumière du soir.">
     </picture>
   </div>
   <div class="hero-inner">
@@ -532,7 +532,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="brand">
+        <a href="/" class="brand">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><path d="M3 15 12 6l9 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 8.5V5h2.5v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
