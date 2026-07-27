@@ -70,10 +70,13 @@
   function onScroll() {
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 24);
 
-    // Callbar : après le hero, mais masquée quand le formulaire est à l'écran —
-    // inutile de proposer d'appeler quand l'utilisateur est déjà en train d'écrire.
+    // Callbar : dès que le hero est quitté (0.35 au lieu de 0.6, pour ne pas
+    // laisser de zone sans CTA en milieu de page), mais masquée quand le
+    // formulaire est à l'écran (inutile de proposer d'appeler quand on écrit).
     if (callbar && devis) {
-      var past = window.scrollY > window.innerHeight * 0.6;
+      var hero = document.querySelector('.hero');
+      var heroBottom = hero ? hero.getBoundingClientRect().bottom : window.innerHeight * 0.35;
+      var past = heroBottom < window.innerHeight * 0.5;
       var box = devis.getBoundingClientRect();
       var formVisible = box.top < window.innerHeight && box.bottom > 0;
       callbar.classList.toggle('show', past && !formVisible);

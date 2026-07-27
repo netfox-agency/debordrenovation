@@ -524,9 +524,13 @@ h2, h3 { text-wrap: balance; }
   color: var(--ink); letter-spacing: -.02em; text-decoration: none; margin-top: 2px;
 }
 /* Le numéro de téléphone est LE geste que le site doit provoquer. Il faisait
-   29px de haut : sous la cible tactile. */
-.info-row a.big { display: inline-flex; align-items: center; min-height: 44px; }
-.info-row a.big:hover { color: var(--accent-deep); }
+   29px de haut (sous la cible tactile) ET s'affichait comme un titre noir :
+   rien ne disait qu'on pouvait le taper. En terre cuite + soulignement au
+   survol, il se lit comme un lien à appeler. */
+.info-row a.big { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: var(--accent-deep); }
+.info-row a.big::after { content: "›"; font-weight: 700; opacity: .6; transition: transform .2s var(--ease); }
+.info-row a.big:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.info-row a.big:hover::after { transform: translateX(3px); }
 .info-row small { display: block; margin-top: 3px; font-size: 14px; color: var(--text-mute); }
 
 .form { background: var(--surface); border-radius: var(--r-lg); padding: clamp(24px, 3vw, 34px); box-shadow: var(--sh-lg); }
