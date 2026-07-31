@@ -751,25 +751,6 @@ h2, h3 { text-wrap: balance; }
 @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } .rea.tall { grid-row: span 1; } .rea.tall img { aspect-ratio: 4 / 3; } }
 @media (max-width: 520px) { .gallery { grid-template-columns: 1fr 1fr; gap: 10px; } }
 
-/* ---------- Avant / après ---------- */
-.ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.ba { display: flex; flex-direction: column; gap: 11px; margin: 0; }
-.ba-imgs {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
-  border-radius: var(--r-md); overflow: hidden; box-shadow: var(--sh-sm);
-}
-.ba-cell { position: relative; }
-.ba-cell img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
-.ba-tag {
-  position: absolute; left: 10px; top: 10px;
-  font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
-  padding: 5px 11px; border-radius: 999px;
-  background: rgba(24, 18, 12, .74); color: #fff;
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-}
-.ba-tag-after { background: var(--accent); }
-.ba figcaption { font-size: 15px; font-weight: 600; color: var(--ink); }
-
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
@@ -780,7 +761,6 @@ h2, h3 { text-wrap: balance; }
   border-radius: var(--r-md); box-shadow: var(--sh-sm); background: var(--navy-1); cursor: pointer;
 }
 .demo figcaption { margin-top: 9px; font-size: 13px; color: var(--text-mute); }
-@media (max-width: 860px) { .ba-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Avis clients (Google) ---------- */
 .stars { color: var(--accent); letter-spacing: 3px; font-size: 16px; line-height: 1; }
