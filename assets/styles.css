@@ -751,6 +751,28 @@ h2, h3 { text-wrap: balance; }
 @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } .rea.tall { grid-row: span 1; } .rea.tall img { aspect-ratio: 4 / 3; } }
 @media (max-width: 520px) { .gallery { grid-template-columns: 1fr 1fr; gap: 10px; } }
 
+/* ---------- Avis clients (Google) ---------- */
+.stars { color: var(--accent); letter-spacing: 3px; font-size: 16px; line-height: 1; }
+.rating-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 18px;
+  font-size: 15px; color: var(--text-soft);
+}
+.rating-badge b { color: var(--ink); font-weight: 700; }
+.reviews {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px;
+}
+.review {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: 26px 24px; box-shadow: var(--sh-sm);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.review blockquote { margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.review figcaption { margin-top: auto; display: flex; flex-direction: column; gap: 2px; }
+.review .rev-name { font-weight: 600; color: var(--ink); }
+.review .rev-src { font-size: 12.5px; color: var(--text-mute); letter-spacing: .01em; }
+.reviews-foot { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+@media (max-width: 860px) { .reviews { grid-template-columns: 1fr; } }
+
 /* Page réalisations : galerie pleine largeur, tuiles régulières */
 .rea-page { padding-block: clamp(120px, 14vw, 150px) clamp(64px, 8vw, 112px); }
 .rea-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
