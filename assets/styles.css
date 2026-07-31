@@ -773,15 +773,14 @@ h2, h3 { text-wrap: balance; }
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
-.demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 640px; margin-top: 20px; }
+.demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 560px; margin-top: 20px; }
 .demo { margin: 0; }
 .demo video {
-  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block;
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
   border-radius: var(--r-md); box-shadow: var(--sh-sm); background: var(--navy-1); cursor: pointer;
 }
 .demo figcaption { margin-top: 9px; font-size: 13px; color: var(--text-mute); }
 @media (max-width: 860px) { .ba-grid { grid-template-columns: 1fr; } }
-@media (max-width: 420px) { .demo-grid { gap: 12px; } }
 
 /* ---------- Avis clients (Google) ---------- */
 .stars { color: var(--accent); letter-spacing: 3px; font-size: 16px; line-height: 1; }
