@@ -751,6 +751,27 @@ h2, h3 { text-wrap: balance; }
 @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } .rea.tall { grid-row: span 1; } .rea.tall img { aspect-ratio: 4 / 3; } }
 @media (max-width: 520px) { .gallery { grid-template-columns: 1fr 1fr; gap: 10px; } }
 
+/* ---------- Avant / après (page réalisations — classe dédiée, PAS .ba
+   qui est déjà pris par la section démoussage) ---------- */
+.bapair-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.bapair { display: flex; flex-direction: column; gap: 11px; margin: 0; }
+.bapair-imgs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  border-radius: var(--r-md); overflow: hidden; box-shadow: var(--sh-sm);
+}
+.bapair-cell { position: relative; }
+.bapair-cell img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.bapair-tag {
+  position: absolute; left: 10px; top: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 999px;
+  background: rgba(24, 18, 12, .74); color: #fff;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.bapair-tag.after { background: var(--accent); }
+.bapair figcaption { font-size: 15px; font-weight: 600; color: var(--ink); }
+@media (max-width: 860px) { .bapair-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
