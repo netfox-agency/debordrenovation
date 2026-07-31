@@ -62,6 +62,32 @@
     cardVid.addEventListener('playing', function () { cardVid.classList.add('playing'); });
   }
 
+  /* ---------- Vidéos de démonstration hydrofuge ----------
+     Muettes, en boucle : elles se lancent quand elles entrent à l'écran et
+     se coupent en sortant. preload="none" : zéro octet tant qu'on ne les voit
+     pas. Un clic met en pause / relance (pas de contrôles natifs, plus propre). */
+  var demoVids = document.querySelectorAll('.demo video');
+  if (demoVids.length && 'IntersectionObserver' in window) {
+    var demoObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting && !reduced) {
+          var p = v.play();
+          if (p && p.catch) p.catch(function () { /* autoplay refusé : le poster reste */ });
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.4 });
+    demoVids.forEach(function (v) {
+      demoObs.observe(v);
+      v.addEventListener('click', function () {
+        if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else v.pause();
+      });
+    });
+  }
+
   /* ---------- Navbar + callbar ---------- */
   var nav = document.getElementById('nav');
   var callbar = document.getElementById('callbar');
