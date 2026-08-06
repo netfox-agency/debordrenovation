@@ -772,6 +772,32 @@ h2, h3 { text-wrap: balance; }
 .bapair figcaption { font-size: 15px; font-weight: 600; color: var(--ink); }
 @media (max-width: 860px) { .bapair-grid { grid-template-columns: 1fr; } }
 
+/* ---------- Landing pages prestation : CTA + preuves + formulaire ---------- */
+.svc-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0 14px; }
+.svc-trust {
+  list-style: none; display: flex; gap: 8px 22px; flex-wrap: wrap;
+  margin: 0; padding: 0; font-size: 14px; color: var(--text-soft); font-weight: 500;
+}
+.svc-trust li { display: inline-flex; align-items: center; gap: 6px; }
+.svc-trust span { color: var(--accent); font-weight: 800; }
+.svc-formsec {
+  background: var(--surface); border-top: 1px solid var(--line);
+  padding-block: clamp(48px, 7vw, 84px);
+}
+.svc-formsec .container { max-width: 62rem; }
+.svc-formsec-h { font-family: var(--display); font-size: clamp(24px, 3vw, 34px); letter-spacing: -.02em; margin: 10px 0 10px; text-wrap: balance; }
+.svc-formsec-lead { color: var(--text-soft); max-width: 46rem; margin-bottom: 28px; }
+.svc-formsec-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 22px; align-items: start; }
+.svc-callcard {
+  display: flex; flex-direction: column; gap: 8px; justify-content: center;
+  padding: 28px 26px; border-radius: var(--r-md); background: var(--navy-1);
+  color: rgba(255, 255, 255, .8); text-decoration: none; box-shadow: var(--sh-sm);
+}
+.svc-callcard b { font-family: var(--display); font-size: 28px; color: #fff; letter-spacing: -.01em; line-height: 1.05; }
+.svc-callcard span { font-size: 14px; }
+.svc-callcard-note { font-size: 12.5px; color: rgba(255, 255, 255, .55); margin-top: 4px; }
+@media (max-width: 760px) { .svc-formsec-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
