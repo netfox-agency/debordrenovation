@@ -5,11 +5,17 @@ d'annonces → mots-clés**. Chaque terme est en **expression exacte** `[...]` e
 **expression de phrase** `"..."`. On démarre **sans requête large** (on l'ouvrira
 plus tard, avec le smart bidding et assez de conversions).
 
-**Villes à décliner** (Ardèche + limitrophes) : Aubenas, Privas, Le Teil, Ruoms,
-Vallon-Pont-d'Arc, Villeneuve-de-Berg, Joyeuse, Les Vans, Largentière, Lavilledieu,
-Vals-les-Bains, Bourg-Saint-Andéol, Viviers, Lablachère, Rosières, Vogüé, La
-Voulte-sur-Rhône, Chomérac + (Gard) Bagnols-sur-Cèze, Alès + (Drôme) Montélimar,
-Pierrelatte. Plus large : **Ardèche**, **Ardèche du Sud**, **07**.
+**Rayon d'intervention : 100 km autour de Lavilledieu (07170)** — beaucoup plus
+large que l'Ardèche. **Villes à vrai volume à décliner en priorité** : Aubenas,
+Privas, **Montélimar**, **Valence**, Le Teil, **Alès**, **Bagnols-sur-Cèze**,
+Pierrelatte, **Orange**, Le Puy-en-Velay, Vals-les-Bains, Bourg-Saint-Andéol.
+Plus petites (couvertes par le géo, à décliner ensuite) : Ruoms, Vallon-Pont-d'Arc,
+Villeneuve-de-Berg, Joyeuse, Les Vans, Largentière, Viviers, Lablachère. Larges :
+**Ardèche**, **Drôme**, **Gard**, **07**, **26**, **30**.
+
+> Rappel : rayon **serré (~40-50 km)** pour urgence/gouttière/petit dépannage
+> (petit ticket), **jusqu'à 100 km** pour les gros chantiers (rénovation,
+> étanchéité, gros démoussage). Se règle campagne par campagne.
 
 > Astuce : commence avec les villes à vrai volume (Aubenas, Privas, Le Teil,
 > Montélimar, Bagnols) + le département « Ardèche ». Ajoute les petites communes
@@ -80,9 +86,41 @@ Landings : `/demoussage-toiture-ardeche` et `/hydrofuge-toiture-ardeche`.
 **Groupe : Nettoyage toiture**
 - `[nettoyage toiture VILLE]` · `"nettoyage toit"` · `"nettoyer sa toiture"` · `"nettoyage tuiles"`
 
-**Groupe : Hydrofuge**
+**Groupe : Hydrofuge / traitement tuile**
 - `"hydrofuge toiture"` · `"traitement hydrofuge toit"` · `"hydrofuge coloré tuiles"`
-- `"traitement toiture"` · `"peinture toiture"` · `"traitement anti mousse toiture"`
+- `"traitement tuiles"` · `"traitement tuile"` · `"hydrofuge tuiles"` · `"traiter ses tuiles"`
+- `"traitement toiture"` · `"peinture toiture"` · `"peinture tuiles"` · `"traitement anti mousse toiture"`
+
+---
+
+## Campagne 4b — ÉTANCHÉITÉ ★ priorité (demandé par le client)
+Landing : `/etancheite-toit-plat-ardeche` (créer une variante « mise en étanchéité »
+si besoin). Intention haute, bon ticket.
+
+**Groupe : Étanchéité toiture / toit plat**
+- `[étanchéité toiture VILLE]` · `[étanchéité toit plat VILLE]`
+- `"étanchéité toiture"` · `"étanchéité toit plat"` · `"étanchéité toit terrasse"`
+- `"mise en étanchéité toiture"` · `"refaire étanchéité toit"` · `"membrane étanchéité toit"`
+
+**Groupe : Problème / réparation d'étanchéité**
+- `"problème étanchéité toit"` · `"réparation étanchéité toiture"` · `"infiltration toit terrasse"`
+- `"étanchéité terrasse qui fuit"` · `"reprise étanchéité"`
+
+---
+
+## Campagne 4c — GOUTTIÈRE / ZINGUERIE ★ priorité (demandé par le client)
+Landing : `/zinguerie-ardeche`. Dépannage fréquent, CPC modéré.
+
+**Groupe : Gouttière (réparation / remplacement)**
+- `[réparation gouttière VILLE]` · `[gouttière VILLE]`
+- `"réparation gouttière"` · `"gouttière qui fuit"` · `"changer gouttière"` · `"remplacement gouttière"`
+- `"pose gouttière"` · `"installation gouttière"` · `"gouttière zinc"` · `"gouttière alu"`
+
+**Groupe : Nettoyage / entretien gouttière**
+- `"nettoyage gouttière VILLE"` · `"nettoyer gouttières"` · `"débouchage gouttière"`
+
+**Groupe : Zinguerie**
+- `[zingueur VILLE]` · `"zinguerie VILLE"` · `"travaux de zinguerie"` · `"noue zinc"` · `"solin toiture"`
 
 ---
 
@@ -154,8 +192,13 @@ Négatifs spécifiques **Isolation combles** (anti chasseurs de prime) :
 5. **Un seul mot-clé exact peut suffire** au début sur un petit marché : ne pas
    sur-empiler, sinon on éparpille le budget.
 
-## Priorité de lancement (rappel)
-1. **Fuite/Urgence** (résultats rapides) + **Rénovation** (gros ticket) + **Marque**.
-2. Puis **Démoussage** (volume pas cher).
-3. Puis **Sarking** (clics très bas) et **Isolation combles** (avec négatifs stricts).
-4. **Couvreur générique** en soutien, budget contrôlé.
+## Priorité de lancement (révisée — focus client)
+1. **Réparation / Fuite / Urgence** (son cœur de métier, résultats rapides) + **Marque**.
+2. **Démoussage + traitement/hydrofuge tuile** (volume, pas cher, demandé).
+3. **Étanchéité** (toit plat/terrasse + mise en étanchéité) et **Gouttière/zinguerie** (demandés).
+4. **Rénovation & gros chantiers** (il les prend, gros ticket) — en soutien.
+5. **Sarking** (clics très bas, différenciant) et **Isolation combles** (négatifs stricts).
+6. **Couvreur générique** en soutien, budget contrôlé.
+
+Rayon : serré (~40-50 km) sur urgence/gouttière/petit dépannage, jusqu'à 100 km sur
+les gros chantiers (rénovation, étanchéité, gros démoussage).

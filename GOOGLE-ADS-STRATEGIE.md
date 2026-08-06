@@ -10,6 +10,38 @@ avec un budget maîtrisé, sur un marché local (Ardèche du Sud) à volume limi
 
 ---
 
+## ⭐ MISE À JOUR — priorités réelles du client (à suivre en priorité)
+
+Debord veut **surtout** : réparation, **mise en étanchéité**, **urgences**,
+**démoussage**, **traitement des tuiles** (hydrofuge), **gouttière** (zinguerie).
+Il prend **aussi** les gros chantiers (rénovation / réfection complète), mais ce
+n'est pas le focus. **Rayon d'intervention : 100 km** autour de Lavilledieu (07170).
+
+**Ordre de lancement révisé :**
+
+| # | Campagne | Pourquoi |
+|---|---|---|
+| **1** | **Réparation / fuite / urgence** | Son cœur de métier + intention max, conversions rapides |
+| **2** | **Démoussage + traitement / hydrofuge tuile** | Volume, CPC bas, il en veut |
+| **3** | **Étanchéité** (toit plat/terrasse + mise en étanchéité) | Demandé, bon ticket |
+| **4** | **Gouttière / zinguerie** | Demandé, dépannage fréquent |
+| **5** | Rénovation & gros chantiers | Il les prend (gros ticket) mais en soutien |
+| **6** | Marque + couvreur générique | Toujours actif, budget mini |
+
+**Géo — rayon 100 km (important) :** ce rayon couvre bien plus que l'Ardèche :
+Montélimar, Valence, Aubenas, Privas, Le Teil, Alès, Bagnols-sur-Cèze,
+Pierrelatte, Orange, Le Puy-en-Velay… → **beaucoup plus de volume** que prévu (le
+frein « marché rural » saute en partie, on peut mettre un peu plus de budget).
+
+> Conseil malin : **différencier le rayon selon la campagne.** Pour l'**urgence /
+> petit dépannage / gouttière** (petit ticket), garder un rayon **plus serré
+> (~40-50 km)** — rouler 1h30 pour une gouttière n'est pas rentable. Pour les
+> **gros chantiers** (rénovation, étanchéité complète, gros démoussage), aller
+> jusqu'à **100 km** (le déplacement se justifie). Ça se règle campagne par
+> campagne dans Google Ads.
+
+---
+
 ## 1. Le raisonnement : qu'est-ce qui est le plus rentable ?
 
 On classe chaque prestation sur 3 axes : **intention** (le mec veut-il acheter
