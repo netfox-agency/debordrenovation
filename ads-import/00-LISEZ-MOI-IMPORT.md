@@ -3,6 +3,39 @@
 **Contenu :** 4 campagnes · 9 groupes d'annonces · 107 mots-clés · 9 annonces RSA
 · 1 liste de négatifs. Plan 400 €/mois.
 
+---
+# 🚨 À LIRE AVANT TOUT : le ciblage géographique
+
+**Le ciblage géographique NE PEUT PAS être importé en CSV.** Une campagne
+importée sans réglage cible **la France entière**. Si tu actives sans corriger,
+tu paies des clics de Lille à Marseille et le budget part en 3 jours.
+
+**Après l'import, pour CHACUNE des 4 campagnes :**
+Paramètres → **Zones géographiques** → « Saisir un autre lieu » → **Rayon** :
+
+| Campagne | Rayon autour de **Lavilledieu 07170** |
+|---|---|
+| `Search_Urgence-Reparation_Ardeche` | **40 km** |
+| `Search_Entretien-Toiture_Ardeche` | **60 km** |
+| `Search_Gros-Chantiers_Ardeche` | **100 km** |
+| `Search_Marque_Ardeche` | **100 km** |
+
+Puis, toujours dans Zones géographiques → **Options de zone** :
+cocher **« Personnes présentes dans vos zones ciblées »**
+(et surtout PAS « présence OU intérêt » : sinon un Parisien qui cherche
+« couvreur Ardèche » pour sa résidence secondaire déclenche l'annonce).
+
+**Vérification :** une fois réglé, la carte Google doit montrer un cercle centré
+sur Lavilledieu. Si tu vois la France entière en bleu, ce n'est pas fait.
+
+### Pourquoi ces rayons (et pas 100 km partout)
+Un dépannage de gouttière à 90 km n'est pas rentable : le trajet mange la marge.
+Les gros chantiers, si. Toutes les villes visées sont dans les 100 km :
+Aubenas 7 km · Privas 21 · Montélimar 24 · Les Vans 32 · Bagnols 48 ·
+Valence 53 · Orange 56 · Alès 58 · Le Puy-en-Velay 69.
+
+---
+
 > ⚠️ **Les campagnes arrivent en PAUSE, volontairement.** Rien ne se dépense tant
 > que tu ne les actives pas. On les active seulement après avoir branché le suivi
 > de conversions et l'extension d'appel (sinon on paie à l'aveugle).
