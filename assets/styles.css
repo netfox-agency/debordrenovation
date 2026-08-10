@@ -798,6 +798,38 @@ h2, h3 { text-wrap: balance; }
 .svc-callcard-note { font-size: 12.5px; color: rgba(255, 255, 255, .55); margin-top: 4px; }
 @media (max-width: 760px) { .svc-formsec-grid { grid-template-columns: 1fr; } }
 
+/* ---------- Landings de conversion : process, budget, urgence ---------- */
+.urgent-box {
+  margin: 34px 0 8px; padding: 20px 22px;
+  border-left: 3px solid var(--accent); border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: rgba(180, 85, 45, .07);
+}
+.urgent-box b { display: block; font-family: var(--display); font-size: 17px; color: var(--ink); margin-bottom: 6px; }
+.urgent-box p { margin: 0; color: var(--text-soft); }
+.steps { list-style: none; counter-reset: none; padding: 0; margin: 8px 0 0; display: grid; gap: 18px; }
+.steps li { position: relative; padding-left: 54px; }
+.step-n {
+  position: absolute; left: 0; top: 0;
+  font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: .06em;
+  color: var(--accent); background: rgba(180, 85, 45, .1);
+  width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.steps b { display: block; font-family: var(--display); font-size: 17px; color: var(--ink); margin-bottom: 3px; padding-top: 8px; }
+.steps p { margin: 0; color: var(--text-soft); }
+.budget-box {
+  margin-top: 10px; padding: 26px 24px; border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--sh-sm);
+}
+.budget-box p { margin-bottom: 12px; }
+.budget-box .btn { margin-top: 6px; }
+.lp-rating { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-size: 15px; color: var(--text-soft); }
+.lp-rating b { color: var(--ink); }
+.lp-reviews { grid-template-columns: 1fr; gap: 14px; }
+.lp-reviews .review { padding: 20px 22px; }
+.lp-reviews blockquote { font-size: 15.5px; }
+@media (min-width: 900px) { .lp-reviews { grid-template-columns: repeat(3, 1fr); } }
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
