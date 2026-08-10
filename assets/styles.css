@@ -830,6 +830,23 @@ h2, h3 { text-wrap: balance; }
 .lp-reviews blockquote { font-size: 15.5px; }
 @media (min-width: 900px) { .lp-reviews { grid-template-columns: repeat(3, 1fr); } }
 
+/* Les pages prestation ont un style LOCAL `.svc figure / .svc figcaption` pensé
+   pour leur unique figure d'illustration (ratio 16/9, légende en pastille sombre
+   flottante). Il contaminait les composants de landing insérés ensuite
+   (avant/après écrasé en 16/9, légendes transformées en pastilles). On le
+   neutralise ici, avec une spécificité supérieure (2 classes). */
+.svc .bapair, .svc .demo { margin: 0; overflow: visible; box-shadow: none; border-radius: 0; }
+.svc .bapair figcaption, .svc .demo figcaption, .svc .review figcaption {
+  position: static; background: none; border-radius: 0; padding: 0;
+}
+.svc .bapair figcaption { font-size: 15px; font-weight: 600; color: var(--ink); }
+.svc .demo figcaption { margin-top: 9px; font-size: 13px; color: var(--text-mute); }
+.svc .review figcaption { margin-top: auto; display: flex; flex-direction: column; gap: 2px; }
+.svc .bapair-cell img { aspect-ratio: 3 / 4; }
+.svc .bapair-imgs { overflow: hidden; }
+/* Une seule paire avant/après : elle occupe toute la largeur (sinon demi-colonne vide). */
+.bapair-grid > .bapair:only-child { grid-column: 1 / -1; }
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
