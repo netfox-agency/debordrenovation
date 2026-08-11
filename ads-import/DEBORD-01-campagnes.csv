@@ -1,5 +1,5 @@
-﻿Customer ID,Campaign,Campaign Type,Budget,Bid Strategy Type,Annonces à caractère politique dans l'UE,Status
-389-542-8764,Search_Urgence-Reparation_Ardeche,Search,4.61,Maximize clicks,Non,Paused
-389-542-8764,Search_Entretien-Toiture_Ardeche,Search,4.28,Maximize clicks,Non,Paused
-389-542-8764,Search_Gros-Chantiers_Ardeche,Search,3.29,Maximize clicks,Non,Paused
-389-542-8764,Search_Marque_Ardeche,Search,0.99,Maximize clicks,Non,Paused
+﻿Customer ID,Campaign,Campaign Type,Budget,Bid Strategy Type,EU political ads,Annonces à caractère politique dans l'UE,Status
+389-542-8764,Search_Urgence-Reparation_Ardeche,Search,4.61,Maximize clicks,No,Non,Paused
+389-542-8764,Search_Entretien-Toiture_Ardeche,Search,4.28,Maximize clicks,No,Non,Paused
+389-542-8764,Search_Gros-Chantiers_Ardeche,Search,3.29,Maximize clicks,No,Non,Paused
+389-542-8764,Search_Marque_Ardeche,Search,0.99,Maximize clicks,No,Non,Paused
