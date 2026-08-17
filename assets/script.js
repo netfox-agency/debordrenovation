@@ -22,10 +22,126 @@
     g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
     document.head.appendChild(g);
   }
+
+  /* ============================================================
+     GOOGLE ADS — conversions en direct (sans GTM)
+     Plus simple que GTM pour un site statique : le tag officiel
+     suffit. Tant que les identifiants sont des placeholders, rien
+     n'est chargé (aucune requête, aucun cookie).
+
+     >>> POUR ACTIVER : créer 2 actions de conversion dans Google Ads
+         (« Devis envoyé » et « Appel »), puis coller ici :
+         AW_ID       = AW-XXXXXXXXX      (identifiant du compte)
+         LABEL_DEVIS = le libellé de l'action « Devis envoyé »
+         LABEL_APPEL = le libellé de l'action « Appel »
+     ============================================================ */
+  var AW_ID = 'AW-XXXXXXXXX';
+  var LABEL_DEVIS = 'XXXXXXXXXXXXXXX';
+  var LABEL_APPEL = 'XXXXXXXXXXXXXXX';
+  var adsOn = AW_ID.indexOf('XXXX') === -1;
+
+  if (adsOn) {
+    var gs = document.createElement('script');
+    gs.async = true;
+    gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + AW_ID;
+    document.head.appendChild(gs);
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', AW_ID);
+  }
+
+  // Valeur indicative d'un lead (sert au calcul de rentabilité dans Ads).
+  // Ce n'est pas le prix du chantier : c'est la valeur moyenne d'une
+  // demande, marge et taux de transformation compris.
+  var VALEUR_DEVIS = 120;
+  var VALEUR_APPEL = 120;
+
+  function conversion(label, valeur) {
+    if (!adsOn || label.indexOf('XXXX') !== -1) return;
+    gtag('event', 'conversion', {
+      send_to: AW_ID + '/' + label,
+      value: valeur,
+      currency: 'EUR',
+      transaction_id: ATTR.ref
+    });
+  }
+
+  /* ============================================================
+     ATTRIBUTION — savoir d'où vient chaque demande
+     On mémorise (90 jours) le premier ET le dernier contact : le
+     gclid de Google Ads, la campagne, le mot-clé, la page d'entrée.
+     Ces informations partent avec le formulaire : Debord voit dans
+     chaque mail d'où vient la demande, et on peut plus tard
+     réinjecter les chantiers signés dans Google Ads.
+     ============================================================ */
+  var ATTR_KEY = 'dr_attr', ATTR_JOURS = 90;
+
+  function refDemande() {
+    var d = new Date(), p = function (n) { return ('0' + n).slice(-2); };
+    return 'DEB-' + String(d.getFullYear()).slice(2) + p(d.getMonth() + 1) + p(d.getDate())
+      + '-' + Math.random().toString(36).slice(2, 6).toUpperCase();
+  }
+
+  var ATTR = (function () {
+    var q, stock = null, now = Date.now();
+    try { q = new URLSearchParams(location.search); } catch (e) { q = null; }
+    try { stock = JSON.parse(localStorage.getItem(ATTR_KEY)); } catch (e) { stock = null; }
+    if (stock && now - stock.first_ts > ATTR_JOURS * 864e5) stock = null;
+
+    var get = function (k) { return (q && q.get(k)) || ''; };
+    // gbraid / wbraid : équivalents du gclid quand iOS masque le clic
+    var clic = get('gclid') || get('gbraid') || get('wbraid');
+    var utm = {
+      source: get('utm_source'), medium: get('utm_medium'),
+      campagne: get('utm_campaign'), mot_cle: get('utm_term'), contenu: get('utm_content')
+    };
+    var ref = document.referrer || '';
+    var canal = clic ? 'Google Ads'
+      : utm.source ? utm.source
+        : !ref ? 'Direct'
+          : /google\./.test(ref) ? 'Google (naturel)'
+            : /bing\.|yahoo\./.test(ref) ? 'Autre moteur'
+              : 'Site référent';
+
+    if (!stock) {
+      stock = { first_ts: now, first_canal: canal, first_page: location.pathname, ref: refDemande() };
+    }
+    if (clic || utm.source || utm.campagne || !stock.last_ts) {
+      stock.last_ts = now;
+      stock.last_canal = canal;
+      stock.last_page = location.pathname;
+      stock.referrer = ref;
+      if (clic) stock.gclid = clic;
+      if (utm.source || utm.campagne) stock.utm = utm;
+    }
+    try { localStorage.setItem(ATTR_KEY, JSON.stringify(stock)); } catch (e) {}
+    return stock;
+  })();
+
+  // Ajoute les informations de provenance à l'envoi du formulaire.
+  function ajouterProvenance(fd) {
+    var u = ATTR.utm || {};
+    var d = function (ts) { return ts ? new Date(ts).toLocaleDateString('fr-FR') : ''; };
+    fd.append('Reference', ATTR.ref || '');
+    fd.append('Provenance', ATTR.last_canal || '');
+    fd.append('Campagne', u.campagne || '');
+    fd.append('Mot-cle', u.mot_cle || '');
+    fd.append('Identifiant clic Google (gclid)', ATTR.gclid || '');
+    fd.append('Page du formulaire', location.pathname);
+    fd.append('Premiere visite', d(ATTR.first_ts) + ' (' + (ATTR.first_canal || '') + ')');
+    fd.append('Page d entree', ATTR.first_page || '');
+    return fd;
+  }
+
   // Conversion « appel » : tout clic sur un lien tel:
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (a) window.dataLayer.push({ event: 'phone_call', source: a.className || 'lien' });
+    if (!a) return;
+    window.dataLayer.push({
+      event: 'phone_call', source: a.className || 'lien',
+      provenance: ATTR.last_canal || '', gclid: ATTR.gclid || ''
+    });
+    conversion(LABEL_APPEL, VALEUR_APPEL);
   }, true);
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -230,7 +346,7 @@
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { Accept: 'application/json' },
-        body: new FormData(form)
+        body: ajouterProvenance(new FormData(form))
       })
         .then(function (r) { return r.json(); })
         .then(function (data) {
@@ -238,7 +354,13 @@
           if (data.success) {
             ok.classList.add('show');
             // Conversion « devis » pour Google Ads / GA4 (via dataLayer).
-            window.dataLayer.push({ event: 'generate_lead', form: 'devis', prestation: (form.querySelector('[name="prestation"]') || {}).value || '' });
+            var presta = (form.querySelector('[name="prestation"]') || {}).value || '';
+            window.dataLayer.push({
+              event: 'generate_lead', form: 'devis', prestation: presta,
+              provenance: ATTR.last_canal || '', gclid: ATTR.gclid || '',
+              reference: ATTR.ref || ''
+            });
+            conversion(LABEL_DEVIS, VALEUR_DEVIS);
           } else { ko.classList.add('show'); }
         })
         .catch(function () {
