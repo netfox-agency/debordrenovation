@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=21">
+<link rel="stylesheet" href="assets/styles.css?v=22">
 <style>
   /* Page prestation : réutilise le design system (variables, kicker, faq, btn). */
   /* Pas de hero sombre : la navbar reste opaque même en haut de page
@@ -113,6 +113,51 @@
       <li><span>✓</span> Artisan local en Ardèche</li>
       <li><span class="star">★</span> 5,0/5 sur Google</li>
     </ul>
+<!-- LP-EXPRESS -->
+    <div class="express">
+      <div class="express-txt">
+        <b>Rappel gratuit sous 24 h</b>
+        <span>Laissez votre numéro, on vous rappelle. Ou appelez directement le
+          <a href="tel:+33666143784">06 66 14 37 84</a>.</span>
+      </div>
+      <div class="form">
+        <form id="devis-express" novalidate>
+          <input type="hidden" name="access_key" value="c46c85dc-77a9-4a13-92fa-caad93953121">
+          <input type="hidden" name="subject" value="Rappel express · Démoussage de toiture · renovation-ardeche.fr">
+          <input type="hidden" name="from_name" value="Site Debord Rénovation">
+          <input type="hidden" name="prestation" value="Démoussage de toiture">
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
+          <div class="express-champs">
+            <div class="field">
+              <label for="x-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="x-nom" name="nom" autocomplete="name" required>
+              <p class="err">Merci d’indiquer votre nom.</p>
+            </div>
+            <div class="field">
+              <label for="x-tel">Votre téléphone <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="x-tel" name="telephone" autocomplete="tel" inputmode="tel" required>
+              <p class="err">Merci d’indiquer un téléphone où vous joindre.</p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-accent btn-lg">Être rappelé
+            <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-foot">Sans engagement. Diagnostic et devis gratuits.</p>
+        </form>
+        <div class="form-state" role="status" aria-live="polite">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <b>C’est noté.</b>
+          <p>Nous vous rappelons sous 24 h ouvrées.</p>
+          <a href="tel:+33666143784" class="fallback-tel">06 66 14 37 84</a>
+        </div>
+        <div class="form-state is-error" role="alert" aria-live="assertive">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5M12 17h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <b>L’envoi n’a pas abouti.</b>
+          <p>Appelez-nous directement, nous répondons.</p>
+          <a href="tel:+33666143784" class="fallback-tel">06 66 14 37 84</a>
+        </div>
+      </div>
+    </div>
     <figure><img src="assets/img/demoussage-avant.jpg" width="1200" height="675" loading="lazy" decoding="async" alt="Toiture couverte de mousses et de lichens avant démoussage."><figcaption>Chantier réel · avant intervention</figcaption></figure>
     <h2>Pourquoi la mousse abîme réellement un toit</h2>
     <p>La mousse agit comme une éponge plaquée contre la couverture : elle maintient l’humidité en permanence, favorise le gel qui fait éclater les tuiles, et son enracinement soulève les éléments. Sur les toitures ardéchoises exposées à l’humidité hivernale, l’envahissement s’accélère côté nord et sous les arbres.</p>
@@ -423,6 +468,6 @@
  ]
 }
 </script>
-<script src="assets/script.js?v=13" defer></script>
+<script src="assets/script.js?v=14" defer></script>
 </body>
 </html>

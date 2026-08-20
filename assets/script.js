@@ -280,45 +280,49 @@
     });
   });
 
-  /* ---------- Formulaire devis ---------- */
-  var form = document.getElementById('devis-form');
-  var btn = document.getElementById('submit-btn');
-  var ok = document.getElementById('form-ok');
-  var ko = document.getElementById('form-ko');
-
+  /* ---------- Formulaires de devis ----------
+     Une page peut en contenir plusieurs (un formulaire express en haut,
+     le formulaire complet en bas). On les traite tous de la même façon :
+     chaque bloc .form est autonome (son bouton, ses messages). */
   function setInvalid(input, invalid) {
     var field = input.closest('.field');
     if (field) field.classList.toggle('invalid', invalid);
   }
 
-  function validate() {
-    var valid = true;
-    var nom = document.getElementById('f-nom');
-    var tel = document.getElementById('f-tel');
-    var mail = document.getElementById('f-mail');
+  function brancherFormulaire(form) {
+    var bloc = form.closest('.form') || form.parentNode;
+    var btn = form.querySelector('button[type="submit"]');
+    var ok = bloc.querySelector('.form-state:not(.is-error)');
+    var ko = bloc.querySelector('.form-state.is-error');
 
-    var nomBad = !nom.value.trim();
-    setInvalid(nom, nomBad);
-    if (nomBad) valid = false;
+    function champ(nom) { return form.querySelector('[name="' + nom + '"]'); }
 
-    // Un numéro français exploitable : au moins 10 chiffres
-    var telBad = tel.value.replace(/\D/g, '').length < 10;
-    setInvalid(tel, telBad);
-    if (telBad) valid = false;
+    function valider() {
+      var valid = true;
+      var nom = champ('nom'), tel = champ('telephone'), mail = champ('email');
 
-    // L'e-mail est facultatif, mais s'il est rempli il doit être plausible
-    var mailBad = mail.value.trim() !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail.value.trim());
-    setInvalid(mail, mailBad);
-    if (mailBad) valid = false;
-
-    if (!valid) {
-      var first = form.querySelector('.field.invalid input');
-      if (first) first.focus();
+      if (nom) {
+        var nomBad = !nom.value.trim();
+        setInvalid(nom, nomBad); if (nomBad) valid = false;
+      }
+      // Un numéro français exploitable : au moins 10 chiffres
+      if (tel) {
+        var telBad = tel.value.replace(/\D/g, '').length < 10;
+        setInvalid(tel, telBad); if (telBad) valid = false;
+      }
+      // L'e-mail est facultatif, mais s'il est rempli il doit être plausible
+      if (mail) {
+        var mailBad = mail.value.trim() !== '' &&
+          !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail.value.trim());
+        setInvalid(mail, mailBad); if (mailBad) valid = false;
+      }
+      if (!valid) {
+        var premier = form.querySelector('.field.invalid input');
+        if (premier) premier.focus();
+      }
+      return valid;
     }
-    return valid;
-  }
 
-  if (form) {
     // On retire l'état d'erreur dès que l'utilisateur corrige
     form.addEventListener('input', function (e) {
       if (e.target.closest('.field.invalid')) setInvalid(e.target, false);
@@ -326,17 +330,19 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!validate()) return;
+      if (!valider()) return;
 
-      var key = form.querySelector('[name="access_key"]').value;
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Envoi…';
+      var cle = (champ('access_key') || {}).value;
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Envoi…';
+      }
 
       // Clé Web3Forms non configurée : on n'envoie pas dans le vide,
       // on bascule directement sur le repli téléphone.
-      if (!key || key.indexOf('REMPLACER') === 0) {
+      if (!cle || cle.indexOf('REMPLACER') === 0) {
         form.style.display = 'none';
-        ko.classList.add('show');
+        if (ko) ko.classList.add('show');
         return;
       }
 
@@ -352,22 +358,27 @@
         .then(function (data) {
           form.style.display = 'none';
           if (data.success) {
-            ok.classList.add('show');
-            // Conversion « devis » pour Google Ads / GA4 (via dataLayer).
-            var presta = (form.querySelector('[name="prestation"]') || {}).value || '';
+            if (ok) ok.classList.add('show');
+            var presta = (champ('prestation') || {}).value || '';
             window.dataLayer.push({
-              event: 'generate_lead', form: 'devis', prestation: presta,
+              event: 'generate_lead', form: form.id || 'devis', prestation: presta,
               provenance: ATTR.last_canal || '', gclid: ATTR.gclid || '',
               reference: ATTR.ref || ''
             });
             conversion(LABEL_DEVIS, VALEUR_DEVIS);
-          } else { ko.classList.add('show'); }
+          } else if (ko) { ko.classList.add('show'); }
         })
         .catch(function () {
           // Réseau coupé, API HS : le numéro reste la porte de sortie.
           form.style.display = 'none';
-          ko.classList.add('show');
+          if (ko) ko.classList.add('show');
         });
     });
   }
+
+  // Tout formulaire portant une clé Web3Forms est un formulaire de devis.
+  Array.prototype.forEach.call(
+    document.querySelectorAll('form [name="access_key"]'),
+    function (k) { brancherFormulaire(k.form); }
+  );
 })();

@@ -847,6 +847,29 @@ h2, h3 { text-wrap: balance; }
 /* Une seule paire avant/après : elle occupe toute la largeur (sinon demi-colonne vide). */
 .bapair-grid > .bapair:only-child { grid-column: 1 / -1; }
 
+/* ---------- Formulaire express (haut de landing publicitaire) ----------
+   Le formulaire complet est en bas de page : trop loin pour quelqu'un qui
+   arrive d'une annonce. Ce bloc capte la demande en 2 champs, tout de suite. */
+.express {
+  margin: 30px 0 8px; padding: 24px;
+  border-radius: var(--r-md); background: var(--surface);
+  border: 1px solid var(--line); box-shadow: var(--sh-sm);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;
+}
+.express-txt b {
+  display: block; font-family: var(--display); font-size: 21px;
+  color: var(--ink); letter-spacing: -.02em; margin-bottom: 6px;
+}
+.express-txt span { font-size: 15px; color: var(--text-soft); }
+.express-txt a { color: var(--accent-deep); font-weight: 700; white-space: nowrap; }
+.express-champs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.express .form-foot { margin-top: 8px; }
+.express .btn { width: 100%; margin-top: 12px; }
+@media (max-width: 860px) {
+  .express { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+  .express-champs { grid-template-columns: 1fr; }
+}
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
