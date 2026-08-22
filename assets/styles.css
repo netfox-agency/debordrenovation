@@ -907,6 +907,29 @@ h2, h3 { text-wrap: balance; }
 .lp-formsec .container { max-width: var(--maxw); }
 .lp-formsec .svc-formsec-grid { max-width: 64rem; }
 
+/* ---------- Hero de landing en deux colonnes ----------
+   Mesure avant : sur 1440x900 comme sur 1512x832, le bouton « Etre rappele »
+   tombait sous la ligne de flottaison (carte 632->951) et la photo n'etait
+   jamais visible au premier ecran (985->1453), pendant que 320px de hero
+   restaient vides a droite. Le formulaire prend donc cette colonne, et le
+   padding de tete passe de 150px a ~90px : titre, promesse, telephone,
+   formulaire entier et le haut de la photo tiennent dans le premier ecran.
+   `main.svc-lp` et non `.svc-lp` : le style local de page, charge apres
+   styles.css, l'emporterait a specificite egale. */
+main.svc-lp { padding-block: clamp(84px, 9vw, 100px) clamp(64px, 8vw, 112px); }
+@media (min-width: 1000px) {
+  .lp-hero { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px, 3vw, 40px); align-items: start; }
+  .lp-hero-txt { min-width: 0; }
+  /* Dans la colonne de droite, la carte s'empile au lieu de se couper en deux. */
+  .svc-lp .lp-hero .express { margin: 0; max-width: none; grid-template-columns: 1fr; gap: 16px; }
+  /* Empiles, le bloc formulaire et la carte faisaient deux cadres blancs
+     imbriques : on aplatit celui de l'interieur. */
+  .svc-lp .lp-hero .express .form { background: none; box-shadow: none; padding: 0; }
+  /* La photo suit le hero : elle en reprend toute la largeur, sinon son bord
+     droit s'arrete 320px avant celui de la carte. */
+  .svc-lp > .container > figure { max-width: none; }
+}
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }
