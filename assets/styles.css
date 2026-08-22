@@ -870,6 +870,43 @@ h2, h3 { text-wrap: balance; }
   .express-champs { grid-template-columns: 1fr; }
 }
 
+/* ---------- Composition desktop des pages d'atterrissage publicitaires ----------
+   Ces pages heritent de la colonne etroite des pages prestation (50rem), pensee
+   pour un article. Sur un ecran large, ca donnait trois bords gauches differents
+   sur la meme page : 120px pour l'en-tete et le pied, 224px pour la section
+   formulaire, 344px pour le corps. Le logo et le titre H1 etaient decales de
+   224px, et les grilles (4 etapes, avant/apres, avis) etaient tassees dans 800px.
+   On aligne donc tout sur --maxw ; les blocs de texte gardent une longueur de
+   ligne lisible et restent cales a gauche, seules les grilles prennent la largeur. */
+.svc-lp .container { max-width: var(--maxw); }
+.svc-lp .crumbs,
+.svc-lp .kicker,
+.svc-lp h1,
+.svc-lp .svc-meta,
+.svc-lp .svc-hero-cta,
+.svc-lp .svc-trust,
+.svc-lp > .container > h2,
+.svc-lp > .container > figure,
+.svc-lp .faq-list,
+.svc-lp .svc-related,
+.svc-lp .svc-cta { max-width: 52rem; }
+/* La prose se mesure en caracteres, pas en pixels : au-dela de 75 caracteres
+   par ligne l'oeil perd le debut de la ligne suivante. */
+.svc-lp > .container > p:not(.lead):not(.kicker):not(.svc-meta) { max-width: 60ch; }
+/* Les encarts se calent sur cette meme colonne, sinon leur cadre reste large
+   autour d'un texte etroit et creuse 180px de vide a l'interieur. */
+.svc-lp .urgent-box,
+.svc-lp .budget-box { max-width: 41rem; }
+/* Le texte court de la carte de rappel (92px) face au formulaire (290px) :
+   centre, il creusait 124px de vide au-dessus du titre. */
+.svc-lp .express { max-width: 60rem; align-items: start; }
+/* Les photos avant/apres sont en portrait (3/4). Une paire seule etiree sur
+   toute la largeur donnait des images de 765px de haut : on la ramene a la
+   largeur de la colonne de lecture. */
+.svc-lp .bapair-grid > .bapair:only-child { max-width: 48rem; }
+.lp-formsec .container { max-width: var(--maxw); }
+.lp-formsec .svc-formsec-grid { max-width: 64rem; }
+
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
 .demo-wrap { margin-top: clamp(40px, 6vw, 68px); }
 .demo-h { font-family: var(--display); font-size: clamp(21px, 2.6vw, 28px); letter-spacing: -.02em; margin: 10px 0 10px; }

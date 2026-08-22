@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=22">
+<link rel="stylesheet" href="assets/styles.css?v=23">
 <style>
   /* Page prestation : réutilise le design system (variables, kicker, faq, btn). */
   /* Pas de hero sombre : la navbar reste opaque même en haut de page
@@ -34,7 +34,6 @@
   .site-nav .nav-tel { color: var(--ink); }
   .site-nav .burger i, .site-nav .burger i::before, .site-nav .burger i::after { background: var(--ink); }
   .svc { padding-block: clamp(120px, 14vw, 150px) clamp(64px, 8vw, 112px); }
-  .svc .container { max-width: 50rem; }
   .crumbs { font-size: 13px; color: var(--text-mute); margin-bottom: 26px; }
   .crumbs a { color: var(--text-mute); text-decoration: none; }
   .crumbs a:hover { color: var(--accent-deep); }
@@ -94,7 +93,7 @@
   <li><a href="tel:+33666143784">Appeler · 06 66 14 37 84</a></li>
 </ul>
 
-<main id="main" class="svc">
+<main id="main" class="svc svc-lp">
   <div class="container">
     <nav class="crumbs" aria-label="Fil d’Ariane">
       <a href="/">Accueil</a><span>›</span><a href="/#services">Prestations</a><span>›</span>Zinguerie
@@ -254,7 +253,7 @@
 </main>
 
 
-<section id="devis" class="svc-formsec">
+<section id="devis" class="svc-formsec lp-formsec">
   <div class="container">
     <p class="kicker">Devis gratuit &amp; sans engagement</p>
     <h2 class="svc-formsec-h">Recevez votre devis · Zinguerie</h2>
