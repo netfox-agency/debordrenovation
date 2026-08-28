@@ -603,6 +603,16 @@ h2, h3 { text-wrap: balance; }
 .footer a:hover, .footer a:visited:hover { color: #fff; }
 .footer a:visited { color: rgba(255, 255, 255, .6); }
 .footer-bot { padding-top: 22px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 13px; color: rgba(255, 255, 255, .42); }
+/* Le style `.footer a` vise les listes de navigation : 44px de haut et 14,5px
+   pour la cible tactile. Sur le credit en ligne du bas, ca deformerait la
+   ligne, d'ou cette exception (meme specificite, chargee apres). */
+.footer-bot a {
+  display: inline; min-height: 0; font-size: inherit;
+  color: rgba(255, 255, 255, .62);
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+.footer-bot a:hover { color: #fff; border-bottom-color: rgba(255, 255, 255, .45); }
+.footer-bot a:visited { color: rgba(255, 255, 255, .62); }
 
 /* ============================================================
    CALLBAR MOBILE
