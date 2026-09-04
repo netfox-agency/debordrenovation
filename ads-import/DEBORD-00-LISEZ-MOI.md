@@ -28,8 +28,37 @@ demandes continueront d'arriver sans qu'on paie pour elles.
 tout. Réparation/fuite tourne autour de 2,40 €, démoussage autour de 1,40 €,
 rénovation autour de 2,90 €. La rénovation coûte le double du démoussage par
 clic, avec un cycle de décision bien plus long : c'est le pire choix pour
-prouver vite que les annonces ramènent des clients. Le démoussage, lui, est en
-pleine saison (septembre à novembre) et donne le plus de demandes par euro.
+prouver vite que les annonces ramènent des clients.
+
+**Ce que dit vraiment la saison, en Ardèche.** Les épisodes cévenols vont de
+septembre à novembre et l'Ardèche est en plein dedans : plus de 200 mm de pluie
+en 24 heures, parfois davantage. Septembre à novembre, c'est donc avant tout
+**la saison des fuites**, pas celle du démoussage.
+
+Le démoussage a bien deux saisons reconnues, le printemps et l'automne, mais le
+traitement exige un **temps sec** : dans cette région précise, la fenêtre
+d'automne est justement écrasée par les pluies. Les chantiers glissent.
+
+**Pourquoi on garde quand même les deux.** Les deux thèmes se comportent de
+façon opposée, et c'est exactement l'intérêt :
+- **Fuite/urgence** est en pic de saison mais **irrégulier** : la demande
+  explose après un épisode cévenol, puis retombe. Entre deux épisodes, le
+  budget ne trouverait pas où aller.
+- **Démoussage** est **régulier** et moins cher au clic. Il fait tourner le
+  budget entre les pics.
+
+Avec une seule campagne en « Maximiser les clics », Google déplace
+automatiquement l'argent vers le groupe qui a des clics disponibles. C'est la
+couverture recherchée : on capte les pics de fuite quand ils arrivent, sans
+laisser le budget dormir le reste du temps.
+
+**Le biais à surveiller.** « Maximiser les clics » optimise le NOMBRE de clics,
+pas leur valeur. Le démoussage coûtant 1,40 € contre 2,40 € pour la fuite,
+l'algorithme va spontanément privilégier le démoussage. C'est acceptable au
+démarrage (on veut du volume de demandes) mais **à contrôler au 10e jour** :
+regarder les conversions par groupe d'annonces, pas les clics. Si la fuite
+convertit nettement mieux, il faudra la sortir dans sa propre campagne pour
+lui garantir son budget.
 
 **À rouvrir dès que le budget passe à 15-20 €/jour** : Renovation-Toiture en
 premier, c'est là que sont les gros chantiers.
@@ -157,8 +186,28 @@ Avant d'activer, ajouter au minimum :
 
 ### 7. Activer
 
-Passer la campagne en « Activée ». Ne rien toucher pendant **15 jours** :
+Passer la campagne en « Activée ». Ne rien toucher pendant **10 jours** :
 l'algorithme a besoin de données stables.
+
+### 8. Au 10e jour : le seul contrôle qui compte
+
+Ouvrir le rapport par **groupe d'annonces**, et regarder les **conversions**,
+pas les clics.
+
+| Ce qu'on observe | Ce qu'on fait |
+|---|---|
+| Le démoussage capte le budget mais convertit moins | Sortir Reparation-Fuite dans sa propre campagne, avec son budget dédié |
+| La fuite convertit bien et le budget suit | Ne rien changer, monter le budget à 15-20 € |
+| Aucun des deux ne dépense le budget | Élargir le rayon à 40 km avant toute autre chose |
+| Beaucoup de clics, zéro demande | Ne pas toucher aux enchères : le problème est sur la page ou le formulaire |
+
+**Obtenir les vrais volumes de recherche.** Je n'y ai pas accès par l'API (le
+jeton du compte est en accès « explorer », le Planificateur exige « basic »).
+Toi tu les as dans l'interface : Outils → Planification → **Planificateur de
+mots-clés** → « Découvrir de nouveaux mots-clés » → saisir « fuite toiture »,
+« demoussage toiture », « renovation toiture » → cibler l'Ardèche → puis
+regarder la colonne **tendance sur 12 mois**. Ça donnera la saisonnalité réelle
+de sa zone, mois par mois. Envoie-la-moi et j'ajuste la répartition.
 
 ---
 
