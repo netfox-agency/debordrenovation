@@ -917,6 +917,24 @@ h2, h3 { text-wrap: balance; }
 .lp-formsec .container { max-width: var(--maxw); }
 .lp-formsec .svc-formsec-grid { max-width: 64rem; }
 
+/* ---------- Page d'atterrissage publicitaire : le premier ecran mobile ----------
+   Mesure : sur 390x844, le bouton du formulaire tombait a 1208px, soit 1,5 ecran
+   de scroll. Deux blocs coutaient cher pour rien :
+   - le fil d'Ariane, qui passe sur 2 lignes et n'a aucune utilite quand on
+     arrive d'une annonce (le schema BreadcrumbList reste dans le JSON-LD) ;
+   - la ligne `svc-meta`, qui repete mot pour mot les 3 premieres puces de
+     `svc-trust` juste en dessous, en moins lisible (pas de coche). */
+.svc-lp .svc-meta { display: none; }
+@media (max-width: 640px) {
+  .svc-lp .crumbs { display: none; }
+  .svc-lp .lp-hero-txt h1 { margin-top: 10px; }
+  .svc-lp .svc-hero-cta { margin: 20px 0 12px; gap: 10px; }
+  .svc-lp .express { margin-top: 22px; }
+  /* Le numero est deja dans le bouton d'appel juste au-dessus ET dans la barre
+     collante en bas : une 3e occurrence dans la carte coute 50px pour rien. */
+  .svc-lp .lp-tel-bis { display: none; }
+}
+
 /* ---------- Hero de landing en deux colonnes ----------
    Mesure avant : sur 1440x900 comme sur 1512x832, le bouton « Etre rappele »
    tombait sous la ligne de flottaison (carte 632->951) et la photo n'etait
