@@ -942,7 +942,45 @@ h2, h3 { text-wrap: balance; }
    du site pour que tout reste aligne. */
 .svc-lp { padding-bottom: 0; }
 .lp-band { padding-block: clamp(40px, 5vw, 64px); }
-.lp-band-hero { padding-top: 0; padding-bottom: clamp(24px, 3vw, 36px); }
+/* ---------- Hero de landing sur aplat sombre ----------
+   Modele repris de VB : un aplat plein (pas de photo derriere, donc pas de
+   voile), la carte du formulaire en blanc avec une forte ombre pour qu'elle
+   soit le point focal, et la photo de chantier DANS le hero comme preuve
+   plutot qu'en bande separee dessous. */
+.lp-band-hero {
+  background: var(--navy-1); color: rgba(255, 255, 255, .80);
+  padding-top: clamp(104px, 11vw, 124px); padding-bottom: clamp(40px, 5vw, 60px);
+}
+.lp-band-hero .kicker { color: var(--accent-bright); }
+.lp-band-hero .kicker::before { background: var(--accent-bright); }
+.lp-band-hero h1 { color: #fff; }
+.lp-band-hero .lead { color: rgba(255, 255, 255, .78); }
+.lp-band-hero .btn-ghost { color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .34); }
+.lp-band-hero .btn-ghost:hover { box-shadow: inset 0 0 0 1px #fff; }
+/* Preuves : une colonne de coches, pas une ligne qui se casse sur deux rangs. */
+.lp-band-hero .svc-trust { display: grid; gap: 9px; font-size: 15px; color: rgba(255, 255, 255, .86); }
+.lp-band-hero .svc-trust li { align-items: flex-start; }
+.lp-band-hero .svc-trust span { color: var(--accent-bright); }
+/* La carte doit decoller du fond sombre. */
+.svc-lp .lp-hero .express {
+  background: var(--surface); border: 0;
+  box-shadow: 0 24px 60px rgba(10, 6, 2, .45);
+}
+.svc-lp .lp-hero .express-txt b { color: var(--ink); }
+.svc-lp .lp-hero .express-txt span { color: var(--text-soft); }
+.lp-preuve {
+  margin: clamp(24px, 3vw, 34px) 0 0; border-radius: var(--r-md); overflow: hidden;
+  position: relative; box-shadow: 0 18px 44px rgba(0, 0, 0, .38);
+}
+.lp-preuve img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; display: block; }
+/* Le bloc formulaire garde son propre cadre blanc : dans la carte, ca faisait
+   deux encadres imbriques. On l'aplatit a toutes les tailles. */
+.svc-lp .lp-hero .express .form { background: none; box-shadow: none; padding: 0; border: 0; }
+@media (max-width: 640px) {
+  /* Deux boutons de largeurs differentes se lisent mal empiles : on les cale. */
+  .lp-band-hero .svc-hero-cta { display: grid; gap: 10px; }
+  .lp-band-hero .svc-hero-cta .btn { width: 100%; }
+}
 .lp-band-blanc { background: var(--surface); border-block: 1px solid var(--line-soft); }
 .lp-band-releve { background: var(--bg-deep); }
 .lp-band-cta { padding-block: clamp(32px, 4vw, 48px) clamp(48px, 6vw, 72px); }
@@ -1010,15 +1048,17 @@ h2, h3 { text-wrap: balance; }
    formulaire entier et le haut de la photo tiennent dans le premier ecran.
    `main.svc-lp` et non `.svc-lp` : le style local de page, charge apres
    styles.css, l'emporterait a specificite egale. */
-main.svc-lp { padding-block: clamp(84px, 9vw, 100px) clamp(64px, 8vw, 112px); }
+main.svc-lp { padding-block: 0 clamp(64px, 8vw, 112px); }
 @media (min-width: 1000px) {
   .lp-hero { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px, 3vw, 40px); align-items: start; }
+  /* La photo occupe la colonne de gauche sous le texte ; en mobile la grille
+     s'effondre et l'ordre naturel place le formulaire AVANT la photo. */
+  .lp-hero > .lp-hero-txt { grid-column: 1; grid-row: 1; }
+  .lp-hero > .express { grid-column: 2; grid-row: 1; }
+  .lp-hero > .lp-preuve { grid-column: 1; grid-row: 2; }
   .lp-hero-txt { min-width: 0; }
   /* Dans la colonne de droite, la carte s'empile au lieu de se couper en deux. */
   .svc-lp .lp-hero .express { margin: 0; max-width: none; grid-template-columns: 1fr; gap: 16px; }
-  /* Empiles, le bloc formulaire et la carte faisaient deux cadres blancs
-     imbriques : on aplatit celui de l'interieur. */
-  .svc-lp .lp-hero .express .form { background: none; box-shadow: none; padding: 0; }
   /* La photo suit le hero : elle en reprend toute la largeur, sinon son bord
      droit s'arrete 320px avant celui de la carte. */
   .svc-lp .lp-band > .container > figure { max-width: none; }
