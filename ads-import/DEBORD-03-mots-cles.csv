@@ -1,57 +1,35 @@
 ﻿Customer ID,Campaign,Ad Group,Keyword,Match Type,Status
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,depannage toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toit,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,recherche de fuite toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,reparation fuite toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,reparation toiture tempete,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,bachage toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur en urgence,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur rapide,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence ardeche,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence aubenas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence le teil,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence montelimar,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence privas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,degat des eaux toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,depannage toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture ardeche,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture aubenas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture le teil,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture maison,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture montelimar,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture privas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,infiltration eau toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,infiltration toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,intervention toiture urgence,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,reparation fuite toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,reparation toiture tempete,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,reparer fuite toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,toit qui fuit,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,toiture endommagee tempete,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,tuile cassee remplacement,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,tuiles envolees,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,hydrofuge toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,nettoyage toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement tuiles,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toit,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toiture aubenas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toiture le teil,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toiture montelimar,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demoussage toiture privas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,demousser toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,enlever mousse toit,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,hydrofuge colore tuiles,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,hydrofuge toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,hydrofuge tuiles,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,nettoyage toit,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,nettoyage toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,peinture toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement anti mousse toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement hydrofuge toit,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement tuiles,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,depannage toiture,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toit,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,recherche de fuite toiture,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,reparation fuite toiture,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,reparation toiture tempete,Exact,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,bachage toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur en urgence,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur rapide,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence ardeche,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence aubenas,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence le teil,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence montelimar,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence privas,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,degat des eaux toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,depannage toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture ardeche,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture aubenas,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture le teil,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture maison,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture montelimar,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,fuite toiture privas,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,infiltration eau toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,infiltration toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,intervention toiture urgence,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,reparation fuite toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,reparation toiture tempete,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,reparer fuite toiture,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,toit qui fuit,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,toiture endommagee tempete,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,tuile cassee remplacement,Phrase,Enabled
+393-087-6448,Search_Fuite-Urgence_Sud-Ardeche,Reparation-Fuite-Urgence,tuiles envolees,Phrase,Enabled

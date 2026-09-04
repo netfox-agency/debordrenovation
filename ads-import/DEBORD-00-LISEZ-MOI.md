@@ -12,82 +12,36 @@ taille des chantiers.
 
 ## Structure retenue
 
-**Une seule campagne, 2 groupes d'annonces.** Avant : 4 campagnes, 9 groupes.
+**Une campagne, un groupe, une annonce.** `Search_Fuite-Urgence_Sud-Ardeche`
 
-| Groupe | Mots-clés | Page d'atterrissage |
-|---|---:|---|
-| Reparation-Fuite-Urgence | 34 | reparation-fuite-toiture-ardeche |
-| Demoussage-Hydrofuge | 22 | demoussage-toiture-ardeche |
+| | |
+|---|---|
+| Budget | **10 €/jour**, montée à 15-20 € vers le 10e jour |
+| Enchères | **Maximiser les clics**, plafond 2,50 € |
+| Groupe | Reparation-Fuite-Urgence, **34 mots-clés** |
+| Annonce | 1 responsive, 15 titres, 4 descriptions |
+| Page | `reparation-fuite-toiture-ardeche` |
+| Zone | rayon 30 km autour de Lavilledieu, ciblage Présence |
 
-**Mis de côté pour la phase 2** (`DEBORD-06-phase2-en-attente.csv`, 39 mots-clés) :
-Renovation-Toiture, Zinguerie-Gouttiere et Etancheite-Toit-Plat. Ces services
-restent couverts en référencement naturel, leurs pages sont indexées : les
-demandes continueront d'arriver sans qu'on paie pour elles.
+**Pourquoi la fuite et rien d'autre.** À 10 €/jour, tout diviser c'est tout
+affaiblir. Le seul fait solidement établi est celui-ci : les épisodes cévenols
+vont de septembre à novembre, l'Ardèche est en plein dedans, plus de 200 mm de
+pluie en 24 heures. **Septembre à novembre, c'est la saison des fuites.**
 
-**Pourquoi ces deux-là et pas la rénovation.** À 10 €/jour, le CPC décide de
-tout. Réparation/fuite tourne autour de 2,40 €, démoussage autour de 1,40 €,
-rénovation autour de 2,90 €. La rénovation coûte le double du démoussage par
-clic, avec un cycle de décision bien plus long : c'est le pire choix pour
-prouver vite que les annonces ramènent des clients.
+C'est aussi le thème dont l'intention est la plus forte : quelqu'un qui a une
+fuite active appelle dans l'heure. Quelqu'un qui cherche un démoussage compare
+trois devis et décide dans trois semaines. Pour prouver au client que les
+annonces ramènent des demandes, c'est le chemin le plus court.
 
-**Ce que dit vraiment la saison, en Ardèche.** Les épisodes cévenols vont de
-septembre à novembre et l'Ardèche est en plein dedans : plus de 200 mm de pluie
-en 24 heures, parfois davantage. Septembre à novembre, c'est donc avant tout
-**la saison des fuites**, pas celle du démoussage.
+**Ce que je n'ai pas pu vérifier.** Les volumes de recherche réels de sa zone :
+l'API refuse (jeton en accès explorer, le Planificateur exige basic). Le choix
+repose donc sur la saisonnalité vérifiée et sur l'intention, pas sur des
+volumes mesurés. Le Planificateur de mots-clés, dans ton interface, les donne
+en deux minutes et permettrait de confirmer.
 
-Le démoussage a bien deux saisons reconnues, le printemps et l'automne, mais le
-traitement exige un **temps sec** : dans cette région précise, la fenêtre
-d'automne est justement écrasée par les pluies. Les chantiers glissent.
-
-**Pourquoi on garde quand même les deux.** Les deux thèmes se comportent de
-façon opposée, et c'est exactement l'intérêt :
-- **Fuite/urgence** est en pic de saison mais **irrégulier** : la demande
-  explose après un épisode cévenol, puis retombe. Entre deux épisodes, le
-  budget ne trouverait pas où aller.
-- **Démoussage** est **régulier** et moins cher au clic. Il fait tourner le
-  budget entre les pics.
-
-Avec une seule campagne en « Maximiser les clics », Google déplace
-automatiquement l'argent vers le groupe qui a des clics disponibles. C'est la
-couverture recherchée : on capte les pics de fuite quand ils arrivent, sans
-laisser le budget dormir le reste du temps.
-
-**Le biais à surveiller.** « Maximiser les clics » optimise le NOMBRE de clics,
-pas leur valeur. Le démoussage coûtant 1,40 € contre 2,40 € pour la fuite,
-l'algorithme va spontanément privilégier le démoussage. C'est acceptable au
-démarrage (on veut du volume de demandes) mais **à contrôler au 10e jour** :
-regarder les conversions par groupe d'annonces, pas les clics. Si la fuite
-convertit nettement mieux, il faudra la sortir dans sa propre campagne pour
-lui garantir son budget.
-
-**À rouvrir dès que le budget passe à 15-20 €/jour** : Renovation-Toiture en
-premier, c'est là que sont les gros chantiers.
-
-**Pourquoi une seule campagne.** Le budget est fixé au niveau de la campagne.
-Avec 4 campagnes, on figeait 4 enveloppes de 3 à 4 €/jour et l'algorithme ne
-pouvait pas déplacer l'argent vers ce qui marche. Avec une seule enveloppe de
-13,17 €, il alimente librement les groupes qui rapportent.
-
-**Pourquoi 3 groupes et pas 9.** Trois anciens groupes (Fuite toiture, Urgence
-couvreur, Tempête) pointaient vers **la même page** : les séparer ne servait à
-rien et divisait les données par trois. Démoussage et hydrofuge se vendent
-ensemble et partagent la même saison.
-
-Ce qui se fragmente vraiment avec trop de groupes, ce n'est pas l'enchère :
-l'apprentissage des enchères se fait au niveau de la **campagne**, pas du
-groupe. C'est l'**annonce responsive** qui souffre : chacune teste ses
-combinaisons de titres séparément et a besoin de volume.
-
-À 10 €/jour : 2 groupes donnent **80 clics par groupe et par mois**, 3 groupes
-n'en donnent que 45.
-
-**Audit pré-lancement** : 8 mots-clés qualifiés par une ville hors rayon ont été
-retirés (Alès à 58 km, Bagnols-sur-Cèze à 48 km). Ils n'auraient jamais été
-diffusés aux habitants de ces communes, et auraient attiré des demandes
-impossibles à servir. 79 → 71 mots-clés.
-
-La campagne de marque est supprimée : sans notoriété, elle ne dépensera pas et
-fragmente pour rien.
+**En attente** (`DEBORD-06-phase2-en-attente.csv`, 61 mots-clés) : démoussage,
+hydrofuge, rénovation, zinguerie, étanchéité. Ces services restent couverts en
+référencement naturel, leurs pages sont indexées.
 
 ---
 
@@ -117,7 +71,7 @@ Développer → Importations → Charger un fichier →
 
 La campagne arrive **en pause**, c'est voulu.
 
-### 3. Les trois réglages que le CSV ne peut pas porter
+### 3. Les quatre réglages que le CSV ne peut pas porter
 
 À faire à la main dans l'interface, sur la campagne, **avant d'activer**.
 
@@ -125,7 +79,7 @@ La campagne arrive **en pause**, c'est voulu.
 Paramètres → Enchères → « Définir une limite d'enchère au CPC max ».
 **C'est le réglage le plus important.** En « Maximiser les clics » sans plafond,
 Google ignore les enchères de groupe et peut monter à 8-12 € le clic : les 400 €
-achèteraient environ 30 clics au lieu de 160.
+achèteraient environ 25 clics au lieu de 125.
 
 **b) Zone géographique : rayon de 30 km autour de Lavilledieu**
 Paramètres → Zones géographiques → Rayon → coordonnées **44.575745, 4.453406**
@@ -171,7 +125,7 @@ Google pour les visiteurs européens. À prévoir en même temps que l'étape 1.
 
 ### 5. Mots-clés négatifs
 
-58 termes dans `DEBORD-05-mots-cles-negatifs.txt` : emploi, formation,
+74 termes dans `DEBORD-05-mots-cles-negatifs.txt` : emploi, formation,
 bricolage, matériaux, etc. À coller en **expression exacte** dans
 Mots-clés → Négatifs → au niveau campagne.
 
@@ -180,7 +134,7 @@ Mots-clés → Négatifs → au niveau campagne.
 Avant d'activer, ajouter au minimum :
 - **Extension d'appel** avec le 06 66 14 37 84 : c'est le levier le plus rapide,
   le prospect appelle depuis Google sans même visiter le site.
-- **Liens annexes** vers les 2 pages d'atterrissage actives.
+- **Liens annexes** vers les autres prestations du site.
 - **Accroches** : Devis gratuit · Déplacement gratuit · Garantie décennale ·
   Artisan local.
 
