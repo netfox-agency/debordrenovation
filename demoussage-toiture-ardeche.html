@@ -27,19 +27,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=40">
+<link rel="stylesheet" href="assets/styles.css?v=42">
 <style>
   /* Page prestation : réutilise le design system (variables, kicker, faq, btn). */
-  /* Pas de hero sombre : la navbar reste opaque même en haut de page
-     (le JS retire .scrolled à scrollY 0 ; ces règles, chargées après
-     styles.css, imposent l'apparence claire dans tous les cas). */
-  .site-nav { background: rgba(255, 255, 255, .88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--line); }
-  .site-nav .brand-txt b { color: var(--ink); }
-  .site-nav .brand-txt span { color: var(--text-mute); }
-  .site-nav .nav-links a { color: var(--text-soft); }
-  .site-nav .nav-links a:hover { color: var(--accent-deep); }
-  .site-nav .nav-tel { color: var(--ink); }
-  .site-nav .burger i, .site-nav .burger i::before, .site-nav .burger i::after { background: var(--ink); }
+  /* Hero sombre : la navbar s'y fond en haut de page et reprend son fond
+     clair des que le JS pose .scrolled. */
+  .site-nav:not(.scrolled) { background: transparent; box-shadow: none; }
+  .site-nav:not(.scrolled) .brand-txt b { color: #fff; }
+  .site-nav:not(.scrolled) .brand-txt span { color: rgba(255, 255, 255, .62); }
+  .site-nav:not(.scrolled) .nav-links a { color: rgba(255, 255, 255, .82); }
+  .site-nav:not(.scrolled) .nav-links a:hover { color: #fff; }
+  .site-nav:not(.scrolled) .nav-tel { color: #fff; }
+  .site-nav:not(.scrolled) .burger i,
+  .site-nav:not(.scrolled) .burger i::before,
+  .site-nav:not(.scrolled) .burger i::after { background: #fff; }
+  .site-nav.scrolled { background: rgba(255, 255, 255, .92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--line); }
   .svc { padding-block: clamp(120px, 14vw, 150px) clamp(64px, 8vw, 112px); }
   .crumbs { font-size: 13px; color: var(--text-mute); margin-bottom: 26px; }
   .crumbs a { color: var(--text-mute); text-decoration: none; }
@@ -105,7 +107,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </ul>
 
 <main id="main" class="svc svc-lp">
-  <div class="container">
+  <section class="lp-band lp-band-hero">
+    <div class="container">
     <nav class="crumbs" aria-label="Fil d’Ariane">
       <a href="/">Accueil</a><span>›</span><a href="/#services">Prestations</a><span>›</span>Démoussage de toiture
     </nav>
@@ -143,12 +146,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="express-champs">
             <div class="field">
               <label for="x-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="x-nom" name="nom" autocomplete="name" required>
+              <input type="text" id="x-nom" name="nom" autocomplete="name" placeholder="Nom et prénom" required>
               <p class="err">Merci d’indiquer votre nom.</p>
             </div>
             <div class="field">
               <label for="x-tel">Votre téléphone <span class="req" aria-hidden="true">*</span></label>
-              <input type="tel" id="x-tel" name="telephone" autocomplete="tel" inputmode="tel" required>
+              <input type="tel" id="x-tel" name="telephone" autocomplete="tel" inputmode="tel" placeholder="06 00 00 00 00" required>
               <p class="err">Merci d’indiquer un téléphone où vous joindre.</p>
             </div>
           </div>
@@ -171,8 +174,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+    
+      <figure class="lp-preuve"><img src="assets/img/demoussage-avant.jpg" width="1200" height="675" loading="lazy" decoding="async" alt="Toiture couverte de mousses et de lichens avant démoussage."><figcaption>Chantier réel · avant intervention</figcaption></figure>
     </div>
-    <figure><img src="assets/img/demoussage-avant.jpg" width="1200" height="675" loading="lazy" decoding="async" alt="Toiture couverte de mousses et de lichens avant démoussage."><figcaption>Chantier réel · avant intervention</figcaption></figure>
+    </div>
+  </section>
+  <div class="container">
     <h2>Pourquoi la mousse abîme réellement un toit</h2>
     <p>La mousse agit comme une éponge plaquée contre la couverture : elle maintient l’humidité en permanence, favorise le gel qui fait éclater les tuiles, et son enracinement soulève les éléments. Sur les toitures ardéchoises exposées à l’humidité hivernale, l’envahissement s’accélère côté nord et sous les arbres.</p>
     <p>Nous traitons avec des produits adaptés au support, sans agresser les tuiles ni la zinguerie. Une tuile démoussée reste toutefois une tuile vieillie : pour retrouver la teinte d’origine, c’est l’hydrofuge coloré qui prend le relais.</p>

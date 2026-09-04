@@ -1037,8 +1037,6 @@ h2, h3 { text-wrap: balance; }
 .lp-risque .lead { color: rgba(255, 255, 255, .74); }
 .risque-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: clamp(28px, 4vw, 40px); }
 @media (max-width: 720px) { .risque-liste { grid-template-columns: 1fr; } }
-/* La bande de l'image : elle suit le hero, sans respiration inutile. */
-.lp-band:has(> .container > figure) { padding-top: 0; }
 .svc-lp .lp-band > .container > h2:first-child { margin-top: 0; }
 @media (max-width: 640px) {
 }
@@ -1052,7 +1050,11 @@ h2, h3 { text-wrap: balance; }
    formulaire entier et le haut de la photo tiennent dans le premier ecran.
    `main.svc-lp` et non `.svc-lp` : le style local de page, charge apres
    styles.css, l'emporterait a specificite egale. */
-main.svc-lp { padding-block: 0 clamp(64px, 8vw, 112px); }
+/* Le padding de tete ne se retire que si la page porte le hero sombre, qui
+   gere lui-meme sa hauteur. Sans cette condition, les landings restees en
+   hero clair voyaient leur H1 passer sous la navbar fixe. */
+main.svc-lp { padding-block: clamp(84px, 9vw, 100px) clamp(64px, 8vw, 112px); }
+main.svc-lp:has(.lp-band-hero) { padding-top: 0; }
 @media (min-width: 1000px) {
   .lp-hero { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px, 3vw, 40px); align-items: start; }
   /* La photo occupe la colonne de gauche sous le texte ; en mobile la grille
