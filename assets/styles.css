@@ -959,6 +959,13 @@ h2, h3 { text-wrap: balance; }
     position: sticky; top: 104px;
   }
 }
+
+/* Au-dessus de 1000px le formulaire est deja visible dans le hero, a cote du
+   bouton : un second bouton qui renvoie vers lui n'ajoute rien et scrolle meme
+   vers le haut. Il ne sert que sous 1000px, ou le formulaire passe dessous. */
+@media (min-width: 1000px) {
+  .svc-lp .svc-hero-cta a[href="#devis-express"] { display: none; }
+}
 /* La bande de l'image : elle suit le hero, sans respiration inutile. */
 .lp-band:has(> .container > figure) { padding-top: 0; }
 .svc-lp .lp-band > .container > h2:first-child { margin-top: 0; }
