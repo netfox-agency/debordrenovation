@@ -960,6 +960,10 @@ h2, h3 { text-wrap: balance; }
 /* Preuves : une colonne de coches, pas une ligne qui se casse sur deux rangs. */
 .lp-band-hero .svc-trust { display: grid; gap: 9px; font-size: 15px; color: rgba(255, 255, 255, .86); }
 .lp-band-hero .svc-trust li { align-items: flex-start; }
+/* Copie secondaire remontee a 15,5-16px : sous 16px on force le lecteur
+   mobile a plisser les yeux, et le skill de landing en fait un critere. */
+.lp-risque .risque p { font-size: 15.5px; }
+.svc-lp .faq-list .answer { font-size: 16px; }
 .lp-band-hero .svc-trust span { color: var(--accent-bright); }
 /* La carte doit decoller du fond sombre. */
 .svc-lp .lp-hero .express {
