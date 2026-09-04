@@ -23,15 +23,18 @@
      suffit. Tant que les identifiants sont des placeholders, rien
      n'est chargé (aucune requête, aucun cookie).
 
-     >>> POUR ACTIVER : créer 2 actions de conversion dans Google Ads
-         (« Devis envoyé » et « Appel »), puis coller ici :
-         AW_ID       = AW-XXXXXXXXX      (identifiant du compte)
-         LABEL_DEVIS = le libellé de l'action « Devis envoyé »
-         LABEL_APPEL = le libellé de l'action « Appel »
+     ACTIF. Les deux actions existent dans le compte 393-087-6448 :
+         « Demande de devis (site) »  id 7747411850
+         « Appel depuis le site »     id 7747411853
+
+     IMPORTANT : les conversions Google Ads sont envoyees ICI, en direct.
+     Ne PAS creer de balise de conversion Google Ads dans GTM : elle
+     compterait une deuxieme fois la meme conversion. GTM reste dedie a
+     GA4 et aux autres outils.
      ============================================================ */
-  var AW_ID = 'AW-XXXXXXXXX';
-  var LABEL_DEVIS = 'XXXXXXXXXXXXXXX';
-  var LABEL_APPEL = 'XXXXXXXXXXXXXXX';
+  var AW_ID = 'AW-18401325712';
+  var LABEL_DEVIS = 'ViOKCIq_oO4cEJDlt8ZE';
+  var LABEL_APPEL = 'kXs8CI2_oO4cEJDlt8ZE';
   var adsOn = AW_ID.indexOf('XXXX') === -1;
 
   if (adsOn) {
