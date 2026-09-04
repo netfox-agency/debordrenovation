@@ -1,10 +1,6 @@
-﻿Customer ID,Campaign,Ad Group,Max CPC,Status
-393-087-6448,Search_Urgence-Reparation_Ardeche,Fuite toiture,4.00,Enabled
-393-087-6448,Search_Urgence-Reparation_Ardeche,Urgence couvreur,4.00,Enabled
-393-087-6448,Search_Urgence-Reparation_Ardeche,Tempete,3.50,Enabled
-393-087-6448,Search_Entretien-Toiture_Ardeche,Demoussage,2.00,Enabled
-393-087-6448,Search_Entretien-Toiture_Ardeche,Hydrofuge tuile,2.00,Enabled
-393-087-6448,Search_Entretien-Toiture_Ardeche,Gouttiere,2.00,Enabled
-393-087-6448,Search_Gros-Chantiers_Ardeche,Renovation toiture,3.00,Enabled
-393-087-6448,Search_Gros-Chantiers_Ardeche,Etancheite,2.50,Enabled
-393-087-6448,Search_Marque_Ardeche,Marque,0.50,Enabled
+﻿Customer ID,Campaign,Ad Group,Status
+393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,Enabled
+393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,Enabled
+393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,Enabled
+393-087-6448,Search_Toiture_Sud-Ardeche,Zinguerie-Gouttiere,Enabled
+393-087-6448,Search_Toiture_Sud-Ardeche,Etancheite-Toit-Plat,Enabled
