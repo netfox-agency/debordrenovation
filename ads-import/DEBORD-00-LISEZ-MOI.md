@@ -9,27 +9,37 @@ Budget : **400 €/mois = 13,17 €/jour**.
 
 ## Structure retenue
 
-**Une seule campagne, 5 groupes d'annonces.** Avant : 4 campagnes, 9 groupes.
+**Une seule campagne, 3 groupes d'annonces.** Avant : 4 campagnes, 9 groupes.
 
 | Groupe | Mots-clés | Page d'atterrissage |
 |---|---:|---|
 | Reparation-Fuite-Urgence | 38 | reparation-fuite-toiture-ardeche |
 | Demoussage-Hydrofuge | 24 | demoussage-toiture-ardeche |
 | Renovation-Toiture | 17 | renovation-toiture-ardeche |
-| Zinguerie-Gouttiere | 16 | zinguerie-ardeche |
-| Etancheite-Toit-Plat | 8 | etancheite-toit-plat-ardeche |
+
+**Mis de côté pour la phase 2** (`DEBORD-06-phase2-en-attente.csv`) :
+Zinguerie-Gouttiere (16 mots-clés) et Etancheite-Toit-Plat (8). Ces deux
+services restent couverts en référencement naturel, leurs pages sont
+indexées. On les rouvre au 2e ou 3e mois, ou si le budget augmente.
 
 **Pourquoi une seule campagne.** Le budget est fixé au niveau de la campagne.
 Avec 4 campagnes, on figeait 4 enveloppes de 3 à 4 €/jour et l'algorithme ne
 pouvait pas déplacer l'argent vers ce qui marche. Avec une seule enveloppe de
 13,17 €, il alimente librement les groupes qui rapportent.
 
-**Pourquoi 5 groupes et pas 9.** Trois anciens groupes (Fuite toiture, Urgence
+**Pourquoi 3 groupes et pas 9.** Trois anciens groupes (Fuite toiture, Urgence
 couvreur, Tempête) pointaient vers **la même page** : les séparer ne servait à
 rien et divisait les données par trois. Démoussage et hydrofuge se vendent
-ensemble et partagent la même saison. La campagne de marque est supprimée :
-sans notoriété, elle ne dépensera pas et fragmente pour rien. À revoir au
-3e mois.
+ensemble et partagent la même saison.
+
+Ce qui se fragmente vraiment avec trop de groupes, ce n'est pas l'enchère :
+l'apprentissage des enchères se fait au niveau de la **campagne**, pas du
+groupe. C'est l'**annonce responsive** qui souffre : chacune teste ses
+combinaisons de titres séparément et a besoin de volume. À 200 clics par mois,
+3 groupes donnent 66 clics chacun, 5 groupes n'en donnent que 40.
+
+La campagne de marque est supprimée : sans notoriété, elle ne dépensera pas et
+fragmente pour rien.
 
 ---
 
@@ -69,16 +79,23 @@ Paramètres → Enchères → « Définir une limite d'enchère au CPC max ».
 Google ignore les enchères de groupe et peut monter à 8-12 € le clic : les 400 €
 achèteraient environ 40 clics au lieu de 240.
 
-**b) Zone géographique : rayon de 35 km autour de Lavilledieu**
+**b) Zone géographique : rayon de 30 km autour de Lavilledieu**
 Paramètres → Zones géographiques → Rayon → coordonnées **44.575745, 4.453406**
-→ 35 km. Supprimer « France » s'il apparaît.
+→ 30 km. Supprimer « France » s'il apparaît.
 
-35 km couvre 13 communes et environ 108 000 habitants en centres urbains, de
-Villeneuve-de-Berg (4 km) à Montélimar (24 km), Pierrelatte (29 km) et Les Vans
-(32 km). Passer à 100 km n'ajouterait que Valence, Alès, Orange et Le Puy :
-62 % de population en plus, mais à 53-69 km, dans les marchés les plus chers et
-les plus concurrentiels. Avec 13 €/jour, le budget s'y viderait sans déplacement
-rentable.
+30 km couvre 12 communes et environ 105 400 habitants en centres urbains, de
+Villeneuve-de-Berg (4 km) à Montélimar (24 km), Bourg-Saint-Andéol (27 km) et
+Pierrelatte (29 km).
+
+Pourquoi pas 25 km : Montélimar est à 23,6 km et pèse 40 000 des 84 100
+habitants de ce rayon, soit près de la moitié. À 25 km il ne reste que 1,4 km
+de marge et ses faubourgs sortent de la zone. À 30 km, l'agglomération entière
+est dedans, et on gagne Pierrelatte et Bourg-Saint-Andéol au passage.
+
+Pourquoi pas 100 km : cela n'ajouterait que Valence, Alès, Orange et Le Puy,
+62 % de population en plus mais à 53-69 km, dans les marchés les plus chers et
+les plus concurrentiels. Avec 13 €/jour, le budget s'y viderait sans
+déplacement rentable.
 
 **c) Ciblage : « Présence » et non « Présence ou intérêt »**
 Paramètres → Zones géographiques → Options → **Présence : personnes se trouvant
@@ -96,7 +113,7 @@ Mots-clés → Négatifs → au niveau campagne.
 Avant d'activer, ajouter au minimum :
 - **Extension d'appel** avec le 06 66 14 37 84 : c'est le levier le plus rapide,
   le prospect appelle depuis Google sans même visiter le site.
-- **Liens annexes** vers les 5 pages d'atterrissage.
+- **Liens annexes** vers les 3 pages d'atterrissage actives.
 - **Accroches** : Devis gratuit · Déplacement gratuit · Garantie décennale ·
   Artisan local.
 
