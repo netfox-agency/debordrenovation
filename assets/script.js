@@ -298,6 +298,18 @@
       var valid = true;
       var nom = champ('nom'), tel = champ('telephone'), mail = champ('email');
 
+      // Tout champ marqué `required` doit être rempli. Générique, pour qu'un
+      // champ ajouté au formulaire (commune, etc.) soit contrôlé sans avoir
+      // à revenir ici. Le téléphone et l'e-mail ont leurs règles propres,
+      // plus bas, et sont exclus de cette passe.
+      Array.prototype.forEach.call(
+        form.querySelectorAll('input[required]:not([type="hidden"]), textarea[required], select[required]'),
+        function (el) {
+          if (el === tel || el === mail) return;
+          var vide = !el.value.trim();
+          setInvalid(el, vide); if (vide) valid = false;
+        });
+
       if (nom) {
         var nomBad = !nom.value.trim();
         setInvalid(nom, nomBad); if (nomBad) valid = false;
