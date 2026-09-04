@@ -3,24 +3,36 @@
 Compte : **393-087-6448** · EUR · Europe/Paris · facturation **APPROUVÉE**
 (profil « Entreprises Debord », c'est bien le client qui paie).
 
-Budget : **400 €/mois = 13,17 €/jour**.
+Budget : **10 €/jour au départ** (~300 €/mois), montée prévue à **15-20 €/jour
+vers le 10e jour**. Objectif de la phase 1 : prouver au client que les annonces
+ramènent des demandes. On privilégie donc le **volume de demandes**, pas la
+taille des chantiers.
 
 ---
 
 ## Structure retenue
 
-**Une seule campagne, 3 groupes d'annonces.** Avant : 4 campagnes, 9 groupes.
+**Une seule campagne, 2 groupes d'annonces.** Avant : 4 campagnes, 9 groupes.
 
 | Groupe | Mots-clés | Page d'atterrissage |
 |---|---:|---|
 | Reparation-Fuite-Urgence | 34 | reparation-fuite-toiture-ardeche |
 | Demoussage-Hydrofuge | 22 | demoussage-toiture-ardeche |
-| Renovation-Toiture | 15 | renovation-toiture-ardeche |
 
-**Mis de côté pour la phase 2** (`DEBORD-06-phase2-en-attente.csv`) :
-Zinguerie-Gouttiere (16 mots-clés) et Etancheite-Toit-Plat (8). Ces deux
-services restent couverts en référencement naturel, leurs pages sont
-indexées. On les rouvre au 2e ou 3e mois, ou si le budget augmente.
+**Mis de côté pour la phase 2** (`DEBORD-06-phase2-en-attente.csv`, 39 mots-clés) :
+Renovation-Toiture, Zinguerie-Gouttiere et Etancheite-Toit-Plat. Ces services
+restent couverts en référencement naturel, leurs pages sont indexées : les
+demandes continueront d'arriver sans qu'on paie pour elles.
+
+**Pourquoi ces deux-là et pas la rénovation.** À 10 €/jour, le CPC décide de
+tout. Réparation/fuite tourne autour de 2,40 €, démoussage autour de 1,40 €,
+rénovation autour de 2,90 €. La rénovation coûte le double du démoussage par
+clic, avec un cycle de décision bien plus long : c'est le pire choix pour
+prouver vite que les annonces ramènent des clients. Le démoussage, lui, est en
+pleine saison (septembre à novembre) et donne le plus de demandes par euro.
+
+**À rouvrir dès que le budget passe à 15-20 €/jour** : Renovation-Toiture en
+premier, c'est là que sont les gros chantiers.
 
 **Pourquoi une seule campagne.** Le budget est fixé au niveau de la campagne.
 Avec 4 campagnes, on figeait 4 enveloppes de 3 à 4 €/jour et l'algorithme ne
@@ -35,8 +47,10 @@ ensemble et partagent la même saison.
 Ce qui se fragmente vraiment avec trop de groupes, ce n'est pas l'enchère :
 l'apprentissage des enchères se fait au niveau de la **campagne**, pas du
 groupe. C'est l'**annonce responsive** qui souffre : chacune teste ses
-combinaisons de titres séparément et a besoin de volume. À 200 clics par mois,
-3 groupes donnent 66 clics chacun, 5 groupes n'en donnent que 40.
+combinaisons de titres séparément et a besoin de volume.
+
+À 10 €/jour : 2 groupes donnent **80 clics par groupe et par mois**, 3 groupes
+n'en donnent que 45.
 
 **Audit pré-lancement** : 8 mots-clés qualifiés par une ville hors rayon ont été
 retirés (Alès à 58 km, Bagnols-sur-Cèze à 48 km). Ils n'auraient jamais été
@@ -82,7 +96,7 @@ La campagne arrive **en pause**, c'est voulu.
 Paramètres → Enchères → « Définir une limite d'enchère au CPC max ».
 **C'est le réglage le plus important.** En « Maximiser les clics » sans plafond,
 Google ignore les enchères de groupe et peut monter à 8-12 € le clic : les 400 €
-achèteraient environ 40 clics au lieu de 240.
+achèteraient environ 30 clics au lieu de 160.
 
 **b) Zone géographique : rayon de 30 km autour de Lavilledieu**
 Paramètres → Zones géographiques → Rayon → coordonnées **44.575745, 4.453406**
@@ -128,7 +142,7 @@ Google pour les visiteurs européens. À prévoir en même temps que l'étape 1.
 
 ### 5. Mots-clés négatifs
 
-43 termes dans `DEBORD-05-mots-cles-negatifs.txt` : emploi, formation,
+58 termes dans `DEBORD-05-mots-cles-negatifs.txt` : emploi, formation,
 bricolage, matériaux, etc. À coller en **expression exacte** dans
 Mots-clés → Négatifs → au niveau campagne.
 
@@ -137,7 +151,7 @@ Mots-clés → Négatifs → au niveau campagne.
 Avant d'activer, ajouter au minimum :
 - **Extension d'appel** avec le 06 66 14 37 84 : c'est le levier le plus rapide,
   le prospect appelle depuis Google sans même visiter le site.
-- **Liens annexes** vers les 3 pages d'atterrissage actives.
+- **Liens annexes** vers les 2 pages d'atterrissage actives.
 - **Accroches** : Devis gratuit · Déplacement gratuit · Garantie décennale ·
   Artisan local.
 
@@ -150,17 +164,19 @@ l'algorithme a besoin de données stables.
 
 ## Projection
 
-À 13,17 €/jour avec un plafond à 2,50 € et un CPC moyen attendu autour de
-1,80 à 2,20 € : environ **6 à 7 clics par jour**, soit **190 à 210 clics par
-mois**.
+À 10 €/jour avec un plafond à 2,50 € et un CPC moyen attendu autour de 1,90 €
+sur les deux thèmes retenus : environ **5,3 clics par jour**, soit **160 clics
+par mois**.
 
 | Taux de conversion | Demandes/mois | Coût par demande |
 |---|---:|---:|
-| 5 % | 10 | 40 € |
-| 8 % | 16 | 25 € |
-| 12 % | 24 | 17 € |
+| 5 % | 8 | 38 € |
+| 8 % | 13 | 23 € |
+| 12 % | 19 | 16 € |
 
-Pour des chantiers à 2 000-15 000 €, une demande à 25 € reste très rentable si
+À 20 €/jour, ces chiffres doublent : 16 à 38 demandes par mois.
+
+Pour des chantiers à 2 000-15 000 €, une demande à 23 € reste très rentable si
 Debord signe un devis sur quatre.
 
 ---

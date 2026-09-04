@@ -1,10 +1,9 @@
 ﻿Customer ID,Campaign,Campaign Type,Budget,Bid Strategy Type,EU political ads,Annonces à caractère politique dans l'UE,Status
-393-087-6448,Search_Toiture_Sud-Ardeche,Search,13.17,Maximize clicks,,Non,Paused
+393-087-6448,Search_Toiture_Sud-Ardeche,Search,10.00,Maximize clicks,,Non,Paused
 
 Customer ID,Campaign,Ad Group,Status
 393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,Enabled
 393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,Enabled
 
 Customer ID,Campaign,Ad Group,Keyword,Match Type,Status
 393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,couvreur urgence,Exact,Enabled
@@ -63,23 +62,7 @@ Customer ID,Campaign,Ad Group,Keyword,Match Type,Status
 393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement hydrofuge toit,Phrase,Enabled
 393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement toiture,Phrase,Enabled
 393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,traitement tuiles,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,refaire toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,refection toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renovation toiture,Exact,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,changer toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,couvreur renovation,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,devis renovation toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,prix renovation toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,refaire sa toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,refection toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renovation toiture,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renovation toiture aubenas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renovation toiture le teil,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renovation toiture montelimar,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renovation toiture privas,Phrase,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,renover toiture,Phrase,Enabled
 
 ﻿﻿Customer ID,Campaign,Ad Group,Ad Type,Headline 1,Headline 2,Headline 3,Headline 4,Headline 5,Headline 6,Headline 7,Headline 8,Headline 9,Headline 10,Headline 11,Headline 12,Headline 13,Headline 14,Headline 15,Description 1,Description 2,Description 3,Description 4,Final URL,Path 1,Path 2,Status
 393-087-6448,Search_Toiture_Sud-Ardeche,Reparation-Fuite-Urgence,Responsive search ad,Réparation Fuite Toiture,Fuite de Toit ? On Répare,Recherche de Fuite Toiture,Couvreur Fuite Ardèche,Intervention Rapide,On Trouve l'Origine,Infiltration Réparée,Réparation Durable,Devis Gratuit Sous 24 h,Artisan Couvreur Local,Garantie Décennale,Déplacement Gratuit,"Note 5,0 sur Google",Couvreur en Ardèche,Diagnostic Gratuit du Toit,Fuite active ou infiltration ? On trouve l'origine réelle et on répare durablement.,"Couvreur artisan en Ardèche. Déplacement et devis gratuits, garantie décennale.","Appelez le 06 66 14 37 84 : diagnostic gratuit sur le toit, intervention rapide.","On répare le point d'entrée réel de l'eau, pas seulement la tache au plafond.",https://renovation-ardeche.fr/reparation-fuite-toiture-ardeche,toiture,fuite,Enabled
 393-087-6448,Search_Toiture_Sud-Ardeche,Demoussage-Hydrofuge,Responsive search ad,Démoussage de Toiture,Nettoyage Toiture Ardèche,Enlever la Mousse du Toit,Toiture Assainie,Démoussage Sans Pression,Traitement Anti Mousse,Devis Gratuit Démoussage,Toiture Comme Neuve,Devis Gratuit Sous 24 h,Artisan Couvreur Local,Garantie Décennale,Déplacement Gratuit,"Note 5,0 sur Google",Couvreur en Ardèche,Diagnostic Gratuit du Toit,"Mousses et lichens éliminés, toiture assainie. Devis gratuit et sans engagement.",Grattage manuel et basse pression : on ne rend pas votre tuile poreuse.,Appelez le 06 66 14 37 84 pour un diagnostic gratuit de votre toiture.,"Artisan couvreur local en Ardèche. Déplacement gratuit, garantie décennale.",https://renovation-ardeche.fr/demoussage-toiture-ardeche,toiture,demoussage,Enabled
-393-087-6448,Search_Toiture_Sud-Ardeche,Renovation-Toiture,Responsive search ad,Rénovation de Toiture,Refaire Sa Toiture,Réfection de Toiture,Devis Rénovation Gratuit,Tuile Canal et Ardoise,Toiture Neuve Durable,Diagnostic Sur le Toit,Devis Clair et Détaillé,Devis Gratuit Sous 24 h,Artisan Couvreur Local,Garantie Décennale,Déplacement Gratuit,"Note 5,0 sur Google",Couvreur en Ardèche,Diagnostic Gratuit du Toit,"Rénovation complète de toiture : tuile canal, ardoise, lauze. Devis gratuit.","Du diagnostic à la garantie, un seul interlocuteur. Déplacement gratuit.",Appelez le 06 66 14 37 84 pour votre projet de rénovation de toiture.,Artisan couvreur en Ardèche du Sud. Devis détaillé et garantie décennale.,https://renovation-ardeche.fr/renovation-toiture-ardeche,toiture,renovation,Enabled
