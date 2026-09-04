@@ -45,123 +45,119 @@ référencement naturel, leurs pages sont indexées.
 
 ---
 
+## Deja fait, ne pas refaire
+
+Ces elements existent deja dans le compte, verifies par l'API. **Les recreer
+ferait des doublons et fausserait le comptage des conversions.**
+
+| Element | Etat |
+|---|---|
+| Demande de devis (site) | id 7747411850, ENABLED, principale, 120 EUR |
+| Appel depuis le site | id 7747411853, ENABLED, principale, 120 EUR |
+| Suivi sur le site | AW-18401325712 pose dans `assets/script.js` |
+| Extension d'appel 06 66 14 37 84 | posee au niveau du COMPTE |
+| 4 accroches | posees au niveau du COMPTE |
+| Conteneur GTM-K4LHC78V | installe sur les 37 pages |
+
+Les extensions etant au niveau du compte, elles s'appliqueront
+**automatiquement** a la campagne des l'import. Rien a refaire.
+
+**Ne cree aucune balise de conversion Google Ads dans GTM** : les conversions
+partent en direct depuis le site. Une balise GTM les compterait une deuxieme
+fois.
+
+---
+
 ## Ordre de lancement
 
-### 1. Créer les conversions AVANT tout
+### 1. Tester le formulaire (a faire EN PREMIER)
 
-Sans elles, l'algorithme optimise à l'aveugle et on ne pourra jamais passer en
-« Maximiser les conversions ».
+C'est la seule inconnue qui reste, et la plus grave. Va sur
+`renovation-ardeche.fr/reparation-fuite-toiture-ardeche`, remplis le
+formulaire de rappel, envoie.
 
-Objectifs → Conversions → Nouvelle action → **Site Web** →
-`renovation-ardeche.fr` → configuration manuelle. Créer deux actions :
+Deux choses a verifier :
+- le mail arrive bien chez Debord ;
+- la conversion « Demande de devis (site) » remonte dans Google Ads
+  (comptage sous 3 a 24 h).
 
-| Nom | Catégorie | Valeur |
-|---|---|---|
-| Demande de devis | Envoi de formulaire de prospect | 120 € |
-| Appel téléphonique | Appel téléphonique | 120 € |
-
-Récupérer ensuite l'**identifiant AW-XXXXXXXXX** et les **deux libellés**, puis
-me les donner : je les pose dans `assets/script.js`, où le code de suivi attend
-déjà (attribution gclid, UTM, référence de demande, tout est câblé).
+Si le mail n'arrive pas, **n'active rien** : 100 % des demandes seraient
+perdues, quelle que soit la qualite des annonces.
 
 ### 2. Importer
 
-Développer → Importations → Charger un fichier →
-**`IMPORT-GOOGLE-ADS-DEBORD.csv`** → Aperçu → Appliquer.
+Developper -> Importations -> Charger un fichier ->
+**`IMPORT-GOOGLE-ADS-DEBORD.csv`** -> Apercu -> Appliquer.
 
 La campagne arrive **en pause**, c'est voulu.
 
-### 3. Les quatre réglages que le CSV ne peut pas porter
+### 3. Les quatre reglages que le CSV ne peut pas porter
 
-À faire à la main dans l'interface, sur la campagne, **avant d'activer**.
+A faire sur la campagne, **avant d'activer**.
 
-**a) Plafond d'enchère au CPC : 2,50 €**
-Paramètres → Enchères → « Définir une limite d'enchère au CPC max ».
-**C'est le réglage le plus important.** En « Maximiser les clics » sans plafond,
-Google ignore les enchères de groupe et peut monter à 8-12 € le clic : les 400 €
-achèteraient environ 25 clics au lieu de 125.
+**a) Plafond d'enchere au CPC : 2,50 EUR**
+Parametres -> Encheres -> « Definir une limite d'enchere au CPC max ».
+**C'est le reglage le plus important.** En « Maximiser les clics » sans
+plafond, Google ignore les encheres de groupe et peut monter a 8-12 EUR le
+clic : les 10 EUR/jour acheteraient 1 clic au lieu de 5.
 
-**b) Zone géographique : rayon de 30 km autour de Lavilledieu**
-Paramètres → Zones géographiques → Rayon → coordonnées **44.575745, 4.453406**
-→ 30 km. Supprimer « France » s'il apparaît.
+**b) Zone : rayon de 30 km autour de Lavilledieu**
+Parametres -> Zones geographiques -> Rayon -> **44.575745, 4.453406** -> 30 km.
+Supprimer « France » s'il apparait.
 
 30 km couvre 12 communes et environ 105 400 habitants en centres urbains, de
-Villeneuve-de-Berg (4 km) à Montélimar (24 km), Bourg-Saint-Andéol (27 km) et
-Pierrelatte (29 km).
+Villeneuve-de-Berg (4 km) a Montelimar (24 km), Bourg-Saint-Andeol (27 km) et
+Pierrelatte (29 km). A 25 km, Montelimar (23,6 km, la moitie du marche) aurait
+ses faubourgs hors zone. A 100 km, on n'ajouterait que Valence, Ales, Orange et
+Le Puy : 62 % de population en plus mais a 53-69 km, dans les marches les plus
+chers.
 
-Pourquoi pas 25 km : Montélimar est à 23,6 km et pèse 40 000 des 84 100
-habitants de ce rayon, soit près de la moitié. À 25 km il ne reste que 1,4 km
-de marge et ses faubourgs sortent de la zone. À 30 km, l'agglomération entière
-est dedans, et on gagne Pierrelatte et Bourg-Saint-Andéol au passage.
+**c) Reseaux : decocher le Reseau Display ET les partenaires de recherche**
+Parametres -> Reseaux. Le fichier d'import ne porte pas ce reglage, donc Google
+applique ses defauts, Display inclus.
 
-Pourquoi pas 100 km : cela n'ajouterait que Valence, Alès, Orange et Le Puy,
-62 % de population en plus mais à 53-69 km, dans les marchés les plus chers et
-les plus concurrentiels. Avec 13 €/jour, le budget s'y viderait sans
-déplacement rentable.
+**C'est le piege classique du budget depense sans demande.** Le Display diffuse
+des bannieres sur des sites tiers : des clics a 0,20 EUR en masse, une intention
+quasi nulle, et 10 EUR vides avant midi sans un seul appel.
 
-**c) Réseaux : décocher le Réseau Display ET les partenaires de recherche**
-Paramètres → Réseaux. Le fichier d'import ne porte pas ce réglage, donc Google
-applique ses valeurs par défaut, qui incluent le Display.
+**d) Ciblage : « Presence » et non « Presence ou interet »**
+Parametres -> Zones geographiques -> Options -> **Presence**. Sinon on paie pour
+des Parisiens qui lisent un article sur l'Ardeche.
 
-**C'est le piège classique du budget dépensé sans demande.** Le Réseau Display
-diffuse des bannières sur des sites tiers : des clics à 0,20 € en masse, une
-intention quasi nulle, et un budget quotidien vidé avant midi sans un seul
-appel. Sur une campagne Search à 13 €/jour, il peut absorber la majorité des
-dépenses. Les partenaires de recherche sont moins nocifs mais à surveiller :
-à rouvrir plus tard seulement si le Search pur ne consomme pas le budget.
+### 4. Mots-cles negatifs
 
-**d) Ciblage : « Présence » et non « Présence ou intérêt »**
-Paramètres → Zones géographiques → Options → **Présence : personnes se trouvant
-dans les zones ciblées**. Sinon on paie pour des Parisiens qui lisent un article
-sur l'Ardèche.
+74 termes dans `DEBORD-05-mots-cles-negatifs.txt`. A coller en **expression**
+dans Mots-cles -> Negatifs -> niveau campagne.
 
-### 4. Consentement aux cookies
+### 5. Activer
 
-Aujourd'hui le site ne pose aucun cookie de suivi : les balises sont en
-attente d'identifiant. **Dès qu'on activera le suivi de conversion**, gtag
-déposera des cookies et il faudra une bannière de consentement avec Consent
-Mode v2. Sans elle : exposition CNIL, et données de conversion dégradées côté
-Google pour les visiteurs européens. À prévoir en même temps que l'étape 1.
+Passer la campagne en « Activee ». **Ne rien toucher pendant 10 jours** :
+l'algorithme a besoin de donnees stables.
 
-### 5. Mots-clés négatifs
+### 6. Le consentement aux cookies
 
-74 termes dans `DEBORD-05-mots-cles-negatifs.txt` : emploi, formation,
-bricolage, matériaux, etc. À coller en **expression exacte** dans
-Mots-clés → Négatifs → au niveau campagne.
+Le suivi est actif, donc gtag depose des cookies. Une banniere avec Consent
+Mode v2 est desormais necessaire : exposition CNIL, et donnees de conversion
+degradees cote Google sans elle. A traiter dans les jours qui suivent le
+lancement.
 
-### 6. Extensions
+### 7. Au 10e jour : le seul controle qui compte
 
-Avant d'activer, ajouter au minimum :
-- **Extension d'appel** avec le 06 66 14 37 84 : c'est le levier le plus rapide,
-  le prospect appelle depuis Google sans même visiter le site.
-- **Liens annexes** vers les autres prestations du site.
-- **Accroches** : Devis gratuit · Déplacement gratuit · Garantie décennale ·
-  Artisan local.
-
-### 7. Activer
-
-Passer la campagne en « Activée ». Ne rien toucher pendant **10 jours** :
-l'algorithme a besoin de données stables.
-
-### 8. Au 10e jour : le seul contrôle qui compte
-
-Ouvrir le rapport par **groupe d'annonces**, et regarder les **conversions**,
-pas les clics.
+Regarder les **conversions**, pas les clics.
 
 | Ce qu'on observe | Ce qu'on fait |
 |---|---|
-| Le démoussage capte le budget mais convertit moins | Sortir Reparation-Fuite dans sa propre campagne, avec son budget dédié |
-| La fuite convertit bien et le budget suit | Ne rien changer, monter le budget à 15-20 € |
-| Aucun des deux ne dépense le budget | Élargir le rayon à 40 km avant toute autre chose |
-| Beaucoup de clics, zéro demande | Ne pas toucher aux enchères : le problème est sur la page ou le formulaire |
+| Des demandes arrivent, le budget se depense | Monter a 15-20 EUR, puis rouvrir la renovation |
+| Le budget ne se depense pas | Elargir le rayon a 40 km, puis rouvrir le demoussage |
+| Beaucoup de clics, zero demande | Ne pas toucher aux encheres : le probleme est sur la page ou le formulaire |
+| Des demandes hors zone ou hors sujet | Lire le rapport sur les termes de recherche et ajouter des negatifs |
 
-**Obtenir les vrais volumes de recherche.** Je n'y ai pas accès par l'API (le
-jeton du compte est en accès « explorer », le Planificateur exige « basic »).
-Toi tu les as dans l'interface : Outils → Planification → **Planificateur de
-mots-clés** → « Découvrir de nouveaux mots-clés » → saisir « fuite toiture »,
-« demoussage toiture », « renovation toiture » → cibler l'Ardèche → puis
-regarder la colonne **tendance sur 12 mois**. Ça donnera la saisonnalité réelle
-de sa zone, mois par mois. Envoie-la-moi et j'ajuste la répartition.
+**Obtenir les vrais volumes de recherche.** Je n'y ai pas acces par l'API (jeton
+en acces « explorer », le Planificateur exige « basic »). Toi oui : Outils ->
+Planification -> **Planificateur de mots-cles** -> « Decouvrir de nouveaux
+mots-cles » -> « fuite toiture », « demoussage toiture », « renovation toiture »
+-> cibler l'Ardeche -> colonne **tendance sur 12 mois**. Envoie-la-moi et
+j'ajuste.
 
 ---
 
