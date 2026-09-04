@@ -13,9 +13,9 @@ Budget : **400 €/mois = 13,17 €/jour**.
 
 | Groupe | Mots-clés | Page d'atterrissage |
 |---|---:|---|
-| Reparation-Fuite-Urgence | 38 | reparation-fuite-toiture-ardeche |
-| Demoussage-Hydrofuge | 24 | demoussage-toiture-ardeche |
-| Renovation-Toiture | 17 | renovation-toiture-ardeche |
+| Reparation-Fuite-Urgence | 34 | reparation-fuite-toiture-ardeche |
+| Demoussage-Hydrofuge | 22 | demoussage-toiture-ardeche |
+| Renovation-Toiture | 15 | renovation-toiture-ardeche |
 
 **Mis de côté pour la phase 2** (`DEBORD-06-phase2-en-attente.csv`) :
 Zinguerie-Gouttiere (16 mots-clés) et Etancheite-Toit-Plat (8). Ces deux
@@ -37,6 +37,11 @@ l'apprentissage des enchères se fait au niveau de la **campagne**, pas du
 groupe. C'est l'**annonce responsive** qui souffre : chacune teste ses
 combinaisons de titres séparément et a besoin de volume. À 200 clics par mois,
 3 groupes donnent 66 clics chacun, 5 groupes n'en donnent que 40.
+
+**Audit pré-lancement** : 8 mots-clés qualifiés par une ville hors rayon ont été
+retirés (Alès à 58 km, Bagnols-sur-Cèze à 48 km). Ils n'auraient jamais été
+diffusés aux habitants de ces communes, et auraient attiré des demandes
+impossibles à servir. 79 → 71 mots-clés.
 
 La campagne de marque est supprimée : sans notoriété, elle ne dépensera pas et
 fragmente pour rien.
@@ -97,18 +102,37 @@ Pourquoi pas 100 km : cela n'ajouterait que Valence, Alès, Orange et Le Puy,
 les plus concurrentiels. Avec 13 €/jour, le budget s'y viderait sans
 déplacement rentable.
 
-**c) Ciblage : « Présence » et non « Présence ou intérêt »**
+**c) Réseaux : décocher le Réseau Display ET les partenaires de recherche**
+Paramètres → Réseaux. Le fichier d'import ne porte pas ce réglage, donc Google
+applique ses valeurs par défaut, qui incluent le Display.
+
+**C'est le piège classique du budget dépensé sans demande.** Le Réseau Display
+diffuse des bannières sur des sites tiers : des clics à 0,20 € en masse, une
+intention quasi nulle, et un budget quotidien vidé avant midi sans un seul
+appel. Sur une campagne Search à 13 €/jour, il peut absorber la majorité des
+dépenses. Les partenaires de recherche sont moins nocifs mais à surveiller :
+à rouvrir plus tard seulement si le Search pur ne consomme pas le budget.
+
+**d) Ciblage : « Présence » et non « Présence ou intérêt »**
 Paramètres → Zones géographiques → Options → **Présence : personnes se trouvant
 dans les zones ciblées**. Sinon on paie pour des Parisiens qui lisent un article
 sur l'Ardèche.
 
-### 4. Mots-clés négatifs
+### 4. Consentement aux cookies
+
+Aujourd'hui le site ne pose aucun cookie de suivi : les balises sont en
+attente d'identifiant. **Dès qu'on activera le suivi de conversion**, gtag
+déposera des cookies et il faudra une bannière de consentement avec Consent
+Mode v2. Sans elle : exposition CNIL, et données de conversion dégradées côté
+Google pour les visiteurs européens. À prévoir en même temps que l'étape 1.
+
+### 5. Mots-clés négatifs
 
 43 termes dans `DEBORD-05-mots-cles-negatifs.txt` : emploi, formation,
 bricolage, matériaux, etc. À coller en **expression exacte** dans
 Mots-clés → Négatifs → au niveau campagne.
 
-### 5. Extensions
+### 6. Extensions
 
 Avant d'activer, ajouter au minimum :
 - **Extension d'appel** avec le 06 66 14 37 84 : c'est le levier le plus rapide,
@@ -117,7 +141,7 @@ Avant d'activer, ajouter au minimum :
 - **Accroches** : Devis gratuit · Déplacement gratuit · Garantie décennale ·
   Artisan local.
 
-### 6. Activer
+### 7. Activer
 
 Passer la campagne en « Activée ». Ne rien toucher pendant **15 jours** :
 l'algorithme a besoin de données stables.
