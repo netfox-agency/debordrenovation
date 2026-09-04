@@ -895,14 +895,14 @@ h2, h3 { text-wrap: balance; }
 .svc-lp .svc-meta,
 .svc-lp .svc-hero-cta,
 .svc-lp .svc-trust,
-.svc-lp > .container > h2,
-.svc-lp > .container > figure,
+.svc-lp .lp-band > .container > h2,
+.svc-lp .lp-band > .container > figure,
 .svc-lp .faq-list,
 .svc-lp .svc-related,
 .svc-lp .svc-cta { max-width: 52rem; }
 /* La prose se mesure en caracteres, pas en pixels : au-dela de 75 caracteres
    par ligne l'oeil perd le debut de la ligne suivante. */
-.svc-lp > .container > p:not(.lead):not(.kicker):not(.svc-meta) { max-width: 60ch; }
+.svc-lp .lp-band > .container > p:not(.lead):not(.kicker):not(.svc-meta) { max-width: 60ch; }
 /* Les encarts se calent sur cette meme colonne, sinon leur cadre reste large
    autour d'un texte etroit et creuse 180px de vide a l'interieur. */
 .svc-lp .urgent-box,
@@ -935,6 +935,36 @@ h2, h3 { text-wrap: balance; }
   .svc-lp .lp-tel-bis { display: none; }
 }
 
+/* ---------- Rythme visuel de la page d'atterrissage ----------
+   La page etait un long ruban sur un fond unique : rien ne separait les
+   chapitres, d'ou l'impression de « mal agence ». On alterne desormais les
+   fonds pleine largeur, chaque bande gardant le meme container que le reste
+   du site pour que tout reste aligne. */
+.svc-lp { padding-bottom: 0; }
+.lp-band { padding-block: clamp(40px, 5vw, 64px); }
+.lp-band-hero { padding-top: 0; padding-bottom: clamp(24px, 3vw, 36px); }
+.lp-band-blanc { background: var(--surface); border-block: 1px solid var(--line-soft); }
+.lp-band-releve { background: var(--bg-deep); }
+.lp-band-cta { padding-block: clamp(32px, 4vw, 48px) clamp(48px, 6vw, 72px); }
+/* Bande de prose : le texte plafonne a 60 caracteres par ligne, ce qui laissait
+   la moitie droite de la bande vide. L'encart d'urgence y prend place. */
+@media (min-width: 1000px) {
+  .lp-band-texte > .container {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    column-gap: clamp(40px, 4vw, 64px); align-items: start;
+  }
+  .lp-band-texte > .container > * { grid-column: 1; }
+  .lp-band-texte > .container > .urgent-box {
+    grid-column: 2; grid-row: 1 / span 20; max-width: none; margin: 0;
+    position: sticky; top: 104px;
+  }
+}
+/* La bande de l'image : elle suit le hero, sans respiration inutile. */
+.lp-band:has(> .container > figure) { padding-top: 0; }
+.svc-lp .lp-band > .container > h2:first-child { margin-top: 0; }
+@media (max-width: 640px) {
+}
+
 /* ---------- Hero de landing en deux colonnes ----------
    Mesure avant : sur 1440x900 comme sur 1512x832, le bouton « Etre rappele »
    tombait sous la ligne de flottaison (carte 632->951) et la photo n'etait
@@ -955,7 +985,10 @@ main.svc-lp { padding-block: clamp(84px, 9vw, 100px) clamp(64px, 8vw, 112px); }
   .svc-lp .lp-hero .express .form { background: none; box-shadow: none; padding: 0; }
   /* La photo suit le hero : elle en reprend toute la largeur, sinon son bord
      droit s'arrete 320px avant celui de la carte. */
-  .svc-lp > .container > figure { max-width: none; }
+  .svc-lp .lp-band > .container > figure { max-width: none; }
+  /* En 16/9 pleine largeur, la photo prenait 78% de la hauteur d'ecran et
+     ecrasait la suite. En bande 21/9 elle respire sans dominer. */
+  .svc-lp .lp-band > .container > figure img { aspect-ratio: 21 / 9; }
 }
 
 /* ---------- Démonstration hydrofuge (vidéos) ---------- */
