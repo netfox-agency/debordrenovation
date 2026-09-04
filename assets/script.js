@@ -8,20 +8,14 @@
      l'appel (clic sur un numéro). On les pousse dans dataLayer, que
      GTM lit. dataLayer est un simple tableau : inoffensif sans GTM.
 
-     >>> POUR ACTIVER : remplacer GTM-XXXXXXX par le vrai ID de conteneur
-         Google Tag Manager. Tant que le placeholder est là, GTM ne se
-         charge pas (aucune requête inutile), mais les événements sont
-         quand même collectés dans dataLayer.
+     Conteneur actif : GTM-K4LHC78V (extrait officiel dans le <head>).
+     Les evenements pousses ici sont lisibles comme declencheurs dans GTM.
      ============================================================ */
+  // Le conteneur GTM-K4LHC78V est charge par l'extrait officiel place dans
+  // le <head> de chaque page, comme Google le demande. On ne le charge donc
+  // PAS ici : ce serait un double chargement. On se contente de garantir que
+  // dataLayer existe avant nos push (script defere, GTM est deja passe).
   window.dataLayer = window.dataLayer || [];
-  var GTM_ID = 'GTM-XXXXXXX';
-  if (GTM_ID.indexOf('XXXX') === -1) {
-    window.dataLayer.push({ 'gtm.start': +new Date(), event: 'gtm.js' });
-    var g = document.createElement('script');
-    g.async = true;
-    g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
-    document.head.appendChild(g);
-  }
 
   /* ============================================================
      GOOGLE ADS — conversions en direct (sans GTM)
