@@ -966,6 +966,35 @@ h2, h3 { text-wrap: balance; }
 @media (min-width: 1000px) {
   .svc-lp .svc-hero-cta a[href="#devis-express"] { display: none; }
 }
+
+/* ---------- Bande « pourquoi ne pas attendre » ----------
+   Reprend le principe des landings VB et JRD : une bande sombre juste apres
+   le hero, qui pose le risque en 4 blocs courts et numerotes. C'est ce qui
+   rend la page scannable d'un coup d'oeil, la ou une prose suivie oblige a
+   tout lire. */
+.lp-risque { background: var(--navy-2); color: #fff; }
+.lp-risque .kicker { color: var(--accent-bright); }
+.lp-risque .kicker::before { background: var(--accent-bright); }
+.lp-risque h2 { color: #fff; font-size: clamp(24px, 3.2vw, 36px); letter-spacing: -.02em; max-width: 26ch; margin-top: 12px; }
+.lp-risque .lead { color: rgba(255, 255, 255, .72); max-width: 62ch; margin-top: 14px; }
+.risque-liste {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 32px); margin-top: clamp(28px, 4vw, 42px);
+}
+.risque { display: flex; gap: 14px; align-items: flex-start; }
+.risque .n {
+  font-family: var(--display); font-weight: 800; font-size: 14px;
+  letter-spacing: .08em; color: var(--accent-bright);
+  font-variant-numeric: tabular-nums; padding-top: 3px; flex: none;
+}
+.risque h3 { font-size: 16.5px; color: #fff; margin-bottom: 5px; }
+/*  du style local de la page (1 classe + 1 element, chargee apres
+   styles.css) imposait le brun fonce : 1,1:1 sur fond sombre, illisible.
+   On reprend la main avec 2 classes. */
+.lp-risque .risque p { font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, .70); }
+.lp-risque .lead { color: rgba(255, 255, 255, .74); }
+.risque-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: clamp(28px, 4vw, 40px); }
+@media (max-width: 720px) { .risque-liste { grid-template-columns: 1fr; } }
 /* La bande de l'image : elle suit le hero, sans respiration inutile. */
 .lp-band:has(> .container > figure) { padding-top: 0; }
 .svc-lp .lp-band > .container > h2:first-child { margin-top: 0; }
