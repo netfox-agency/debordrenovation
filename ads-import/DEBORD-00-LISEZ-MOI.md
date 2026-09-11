@@ -1,203 +1,110 @@
-# Lancement Google Ads · Debord Rénovation
+# Google Ads · Debord Rénovation · état au 11 septembre 2026
 
-Compte : **393-087-6448** · EUR · Europe/Paris · facturation **APPROUVÉE**
-(profil « Entreprises Debord », c'est bien le client qui paie).
+Compte **393-087-6448** · EUR · Europe/Paris · facturation approuvée
+(profil « Entreprises Debord » : c'est bien le client qui paie).
 
-Budget : **10 €/jour au départ** (~300 €/mois), montée prévue à **15-20 €/jour
-vers le 10e jour**. Objectif de la phase 1 : prouver au client que les annonces
-ramènent des demandes. On privilégie donc le **volume de demandes**, pas la
-taille des chantiers.
+> Les CSV de ce dossier ne sont plus la source de vérité. La campagne a été
+> créée et modifiée **par l'API**, parce qu'un fichier d'import ne porte ni le
+> plafond d'enchère, ni la coupure du Display, ni le rayon, ni le ciblage
+> Présence. Les scripts sont dans `~/ads-write/debord-*.py`.
 
 ---
 
-## Structure retenue
+## Ce qui tourne
 
-**Une campagne, un groupe, une annonce.** `Search_Fuite-Urgence_Sud-Ardeche`
+```
+Search_Fuite-Urgence_Sud-Ardeche          ENABLED
+├── Reparation-Fuite-Urgence   19 mots-clés  → /reparation-fuite-toiture-ardeche
+└── Couvreur-Local             17 mots-clés  → une page de ville par mot-clé
+```
 
-| | |
+| Réglage | Valeur |
 |---|---|
-| Budget | **10 €/jour**, montée à 15-20 € vers le 10e jour |
-| Enchères | **Maximiser les clics**, plafond 2,50 € |
-| Groupe | Reparation-Fuite-Urgence, **34 mots-clés** |
-| Annonce | 1 responsive, 15 titres, 4 descriptions |
-| Page | `reparation-fuite-toiture-ardeche` |
-| Zone | rayon 30 km autour de Lavilledieu, ciblage Présence |
-
-**Pourquoi la fuite et rien d'autre.** À 10 €/jour, tout diviser c'est tout
-affaiblir. Le seul fait solidement établi est celui-ci : les épisodes cévenols
-vont de septembre à novembre, l'Ardèche est en plein dedans, plus de 200 mm de
-pluie en 24 heures. **Septembre à novembre, c'est la saison des fuites.**
-
-C'est aussi le thème dont l'intention est la plus forte : quelqu'un qui a une
-fuite active appelle dans l'heure. Quelqu'un qui cherche un démoussage compare
-trois devis et décide dans trois semaines. Pour prouver au client que les
-annonces ramènent des demandes, c'est le chemin le plus court.
-
-**Ce que je n'ai pas pu vérifier.** Les volumes de recherche réels de sa zone :
-l'API refuse (jeton en accès explorer, le Planificateur exige basic). Le choix
-repose donc sur la saisonnalité vérifiée et sur l'intention, pas sur des
-volumes mesurés. Le Planificateur de mots-clés, dans ton interface, les donne
-en deux minutes et permettrait de confirmer.
-
-**En attente** (`DEBORD-06-phase2-en-attente.csv`, 61 mots-clés) : démoussage,
-hydrofuge, rénovation, zinguerie, étanchéité. Ces services restent couverts en
-référencement naturel, leurs pages sont indexées.
+| Budget | 10 €/jour |
+| Enchères | Maximiser les clics, plafond **2,50 €** |
+| Réseaux | Google seul · **Display et partenaires coupés** |
+| Zone | rayon **50 km** sur 44.575745, 4.453406 · **Présence** |
+| Négatifs | **80** en expression, niveau campagne |
+| Extensions | appel 06 66 14 37 84 · 4 accroches · 4 liens annexes |
+| Conversions | Demande de devis (7747411850) · Appel depuis le site (7747411853) |
 
 ---
 
-## Deja fait, ne pas refaire
+## Ce qui s'est passé depuis le lancement, et ce que ça a appris
 
-Ces elements existent deja dans le compte, verifies par l'API. **Les recreer
-ferait des doublons et fausserait le comptage des conversions.**
+**J'avais construit une liste de mots-clés trop étroite.** 15 des 34 étaient en
+« faible volume de recherche » et ne sortaient jamais : tous ceux qui collaient
+le service et la ville (« fuite toiture aubenas »). Personne ne tape ça. Ils ont
+été retirés.
 
-| Element | Etat |
-|---|---|
-| Demande de devis (site) | id 7747411850, ENABLED, principale, 120 EUR |
-| Appel depuis le site | id 7747411853, ENABLED, principale, 120 EUR |
-| Suivi sur le site | AW-18401325712 pose dans `assets/script.js` |
-| Extension d'appel 06 66 14 37 84 | posee au niveau du COMPTE |
-| 4 accroches | posees au niveau du COMPTE |
-| Conteneur GTM-K4LHC78V | installe sur les 37 pages |
+**Le mot-clé le plus recherché du métier était absent** : « couvreur aubenas ».
+D'où le groupe `Couvreur-Local`, avec une URL par mot-clé vers la page de la
+commune, dont le titre reprend la requête mot pour mot.
 
-Les extensions etant au niveau du compte, elles s'appliqueront
-**automatiquement** a la campagne des l'import. Rien a refaire.
+**Une description contenait le numéro de téléphone**, ce que Google interdit
+(`PHONE_NUMBER_IN_AD_TEXT`). L'annonce était limitée. La corriger a coûté 48 h
+de diffusion, le temps de la revalidation : une annonce responsive n'est pas
+modifiable, il faut la recréer.
 
-**Ne cree aucune balise de conversion Google Ads dans GTM** : les conversions
-partent en direct depuis le site. Une balise GTM les compterait une deuxieme
-fois.
+**Le rapport des termes de recherche a révélé une fuite de budget** dès 3,61 €
+dépensés : « prix bâche toiture au m2 », un acheteur de matériau, avait consommé
+1,38 €. Six négatifs produit ont été ajoutés. Le piège : notre mot-clé est
+« bachage » (le service), le parasite « bâche » (le produit). Les négatifs ne
+prenant pas les variantes proches, bloquer l'un ne bloque pas l'autre.
 
----
-
-## Ordre de lancement
-
-### 1. Tester le formulaire (a faire EN PREMIER)
-
-C'est la seule inconnue qui reste, et la plus grave. Va sur
-`renovation-ardeche.fr/reparation-fuite-toiture-ardeche`, remplis le
-formulaire de rappel, envoie.
-
-Deux choses a verifier :
-- le mail arrive bien chez Debord ;
-- la conversion « Demande de devis (site) » remonte dans Google Ads
-  (comptage sous 3 a 24 h).
-
-Si le mail n'arrive pas, **n'active rien** : 100 % des demandes seraient
-perdues, quelle que soit la qualite des annonces.
-
-### 2. Importer
-
-Developper -> Importations -> Charger un fichier ->
-**`IMPORT-GOOGLE-ADS-DEBORD.csv`** -> Apercu -> Appliquer.
-
-La campagne arrive **en pause**, c'est voulu.
-
-### 3. Les quatre reglages que le CSV ne peut pas porter
-
-A faire sur la campagne, **avant d'activer**.
-
-**a) Plafond d'enchere au CPC : 2,50 EUR**
-Parametres -> Encheres -> « Definir une limite d'enchere au CPC max ».
-**C'est le reglage le plus important.** En « Maximiser les clics » sans
-plafond, Google ignore les encheres de groupe et peut monter a 8-12 EUR le
-clic : les 10 EUR/jour acheteraient 1 clic au lieu de 5.
-
-**b) Zone : rayon de 30 km autour de Lavilledieu**
-Parametres -> Zones geographiques -> Rayon -> **44.575745, 4.453406** -> 30 km.
-Supprimer « France » s'il apparait.
-
-30 km couvre 12 communes et environ 105 400 habitants en centres urbains, de
-Villeneuve-de-Berg (4 km) a Montelimar (24 km), Bourg-Saint-Andeol (27 km) et
-Pierrelatte (29 km). A 25 km, Montelimar (23,6 km, la moitie du marche) aurait
-ses faubourgs hors zone. A 100 km, on n'ajouterait que Valence, Ales, Orange et
-Le Puy : 62 % de population en plus mais a 53-69 km, dans les marches les plus
-chers.
-
-**c) Reseaux : decocher le Reseau Display ET les partenaires de recherche**
-Parametres -> Reseaux. Le fichier d'import ne porte pas ce reglage, donc Google
-applique ses defauts, Display inclus.
-
-**C'est le piege classique du budget depense sans demande.** Le Display diffuse
-des bannieres sur des sites tiers : des clics a 0,20 EUR en masse, une intention
-quasi nulle, et 10 EUR vides avant midi sans un seul appel.
-
-**d) Ciblage : « Presence » et non « Presence ou interet »**
-Parametres -> Zones geographiques -> Options -> **Presence**. Sinon on paie pour
-des Parisiens qui lisent un article sur l'Ardeche.
-
-### 4. Mots-cles negatifs
-
-74 termes dans `DEBORD-05-mots-cles-negatifs.txt`. A coller en **expression**
-dans Mots-cles -> Negatifs -> niveau campagne.
-
-### 5. Activer
-
-Passer la campagne en « Activee ». **Ne rien toucher pendant 10 jours** :
-l'algorithme a besoin de donnees stables.
-
-### 6. Le consentement aux cookies
-
-Le suivi est actif, donc gtag depose des cookies. Une banniere avec Consent
-Mode v2 est desormais necessaire : exposition CNIL, et donnees de conversion
-degradees cote Google sans elle. A traiter dans les jours qui suivent le
-lancement.
-
-### 7. Au 10e jour : le seul controle qui compte
-
-Regarder les **conversions**, pas les clics.
-
-| Ce qu'on observe | Ce qu'on fait |
-|---|---|
-| Des demandes arrivent, le budget se depense | Monter a 15-20 EUR, puis rouvrir la renovation |
-| Le budget ne se depense pas | Elargir le rayon a 40 km, puis rouvrir le demoussage |
-| Beaucoup de clics, zero demande | Ne pas toucher aux encheres : le probleme est sur la page ou le formulaire |
-| Des demandes hors zone ou hors sujet | Lire le rapport sur les termes de recherche et ajouter des negatifs |
-
-**Obtenir les vrais volumes de recherche.** Je n'y ai pas acces par l'API (jeton
-en acces « explorer », le Planificateur exige « basic »). Toi oui : Outils ->
-Planification -> **Planificateur de mots-cles** -> « Decouvrir de nouveaux
-mots-cles » -> « fuite toiture », « demoussage toiture », « renovation toiture »
--> cibler l'Ardeche -> colonne **tendance sur 12 mois**. Envoie-la-moi et
-j'ajuste.
+**Les 12 pages de ville ont reçu le formulaire express.** Leur seul formulaire
+était en bas de page, à 3 413 px sur mobile. Il est maintenant à 801-847 px,
+visible sans scroller.
 
 ---
 
-## Projection
+## Le suivi, semaine par semaine
 
-À 10 €/jour avec un plafond à 2,50 € et un CPC moyen attendu autour de 1,90 €
-sur les deux thèmes retenus : environ **5,3 clics par jour**, soit **160 clics
-par mois**.
+### Chaque semaine : le rapport des termes de recherche
 
-| Taux de conversion | Demandes/mois | Coût par demande |
-|---|---:|---:|
-| 5 % | 8 | 38 € |
-| 8 % | 13 | 23 € |
-| 12 % | 19 | 16 € |
+C'est le travail le plus rentable sur un compte Ads. En 4 jours il avait déjà
+révélé une fuite. Le mot-clé le plus à risque est **« couvreur »** en
+expression : il porte le volume, mais c'est le plus large.
 
-À 20 €/jour, ces chiffres doublent : 16 à 38 demandes par mois.
+### Le seul chiffre à regarder à 48 h : la dépense quotidienne
 
-Pour des chantiers à 2 000-15 000 €, une demande à 23 € reste très rentable si
-Debord signe un devis sur quatre.
+| Dépense | Diagnostic | Action |
+|---|---|---|
+| 8 à 10 €/jour | volume trouvé | ne rien toucher, attendre les conversions |
+| moins de 3 €/jour | marché plus petit que prévu | élargir le rayon au-delà de 50 km |
+| 0 impression | annonce refusée | onglet Annonces, colonne Statut |
+
+### Au 10e jour : les conversions par groupe, pas les clics
+
+« Maximiser les clics » achète le clic le moins cher. `Couvreur-Local` étant
+moins cher que l'urgence, le budget va probablement basculer vers lui. Ce n'est
+pas un défaut tant que l'objectif est le volume de demandes, mais si la fuite
+convertit nettement mieux avec moins de clics, il faudra lui donner sa propre
+campagne pour lui garantir son budget.
+
+### Quand passer en « Maximiser les conversions »
+
+À partir de **30 conversions sur 30 jours**. Basculer plus tôt étrangle la
+diffusion : sans signal suffisant, l'algorithme arrête de dépenser.
 
 ---
 
-## Quand passer en « Maximiser les conversions »
+## Ce qui reste ouvert
 
-Rester en **Maximiser les clics** au démarrage : c'est le bon choix tant qu'il
-n'y a aucun historique de conversion, et c'est ce qui alimente l'algorithme le
-plus vite.
+**Trois avis Google.** C'est désormais le premier frein, et il ne se règle pas
+dans le compte Ads. À trafic égal, passer de 3 à 20 avis ferait plus pour les
+demandes que n'importe quel réglage restant. Ça bloque aussi les annonces Local
+Services, dont le classement repose massivement sur les avis.
 
-Basculer quand la campagne a accumulé **au moins 30 conversions sur 30 jours**.
-Au rythme projeté, c'est réaliste vers le **2e ou 3e mois**. Basculer trop tôt
-étrangle la diffusion : l'algorithme n'a pas assez de signal et arrête de
-dépenser.
+**Pas de bannière de consentement.** Le suivi est actif, donc gtag dépose des
+cookies. Consent Mode V2 manque : exposition CNIL, et conversions sous-comptées
+pour les visiteurs qui refusent.
 
----
+**Les volumes de recherche réels restent inconnus.** L'API du Planificateur est
+refusée au jeton du compte (accès « explorer », il faut « basic »). Ils sont
+accessibles depuis l'interface : Outils → Planification → Planificateur de
+mots-clés.
 
-## Ce qui reste bloquant
-
-1. **Le formulaire n'a jamais été testé de bout en bout.** Si Web3Forms ne
-   délivre pas, 100 % des demandes sont perdues. Trente secondes depuis un
-   navigateur, à faire avant le premier euro dépensé.
-2. **Identifiant de conversion AW manquant** (étape 1 ci-dessus).
-3. **3 avis Google seulement.** C'est le levier de conversion le plus fort et le
-   seul gratuit.
+**61 mots-clés en attente** (`DEBORD-06-phase2-en-attente.csv`) : démoussage,
+hydrofuge, rénovation, zinguerie, étanchéité. À rouvrir quand le budget passe à
+15-20 €/jour, en commençant par la rénovation.
